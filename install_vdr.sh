@@ -1,18 +1,26 @@
+#!/bin/bash
+#install vdr & plugins from source
+
+#only for testing! Delete network detection from script when using it finally
+install="/tmp/"
+ip_addr=$(ip addr show | grep inet | grep $primary_iface | awk '{ print $2 }' | awk '{gsub("/24", "");print}')
+localnet=$(echo "$ip_addr" | awk -F '.' '{gsub($4, "0/24");print}')
+#
+
+#the actual script starts here
 useradd vdr
 usermod -a -G video vdr
-mkdir -p /var/vdr /var/vdr/record /var/lib/vdr/plugins/vnsiserver /var/lib/vdr/plugins/xvdr /var/lib/vdr/plugins/streamdev
+mkdir -p /var/vdr /var/vdr/record /var/lib/vdr/plugins/vnsiserver /var/lib/vdr/plugins/streamdev /etc/vdr/plugins/vnsiserver /etc/vdr/plugins/streamdev 
 chown -R :video /var/vdr
 chmod -R g+w /var/vdr
 apt-get install -y build-essential libjpeg62-dev libcap-dev libfontconfig1-dev gettext libncursesw5-dev libncurses5-dev
 apt-get build-dep -y vdr
 cd /$install/src
-#get vdr source
 git clone git://projects.vdr-developer.org/vdr.git
 cd /$install/src/vdr/PLUGINS/src
 #get plugin sources (streamdev, vnsi, xvdr, dvbapi, epgsync, svdrpservice)
 git clone git://projects.vdr-developer.org/vdr-plugin-streamdev.git
 git clone https://github.com/FernetMenta/vdr-plugin-vnsiserver
-git clone https://github.com/pipelka/vdr-plugin-xvdr.git
 git clone https://github.com/manio/vdr-plugin-dvbapi.git
 wget http://vdr.schmirler.de/epgsync/vdr-epgsync-1.0.1.tgz
 wget http://vdr.schmirler.de/svdrpservice/vdr-svdrpservice-1.0.0.tgz
@@ -27,35 +35,63 @@ ln -s vdr-epgsync-1.0.1 epgsync
 ln -s svdrpservice-1.0.0 svdrpservice
 cd ../../
 make -j2 && make install
-#link plugins?
-#####
 sudo cp runvdr.template /usr/local/bin/runvdr
+cat > /usr/local/bin/runvdr <<runvdr
+#!/bin/sh
+VDRPRG="/usr/local/bin/vdr"
+VDROPTIONS="-w 60"
+VDRPLUGINS="-P vnsiserver -P dvbapi -P streamdev -P epgsync -P svdrpservice"
+VDRCMD="$VDRPRG $VDROPTIONS $VDRPLUGINS $*"
+#VDRCMD="$VDRPRG -w 60 -c /etc/vdr --epgfile=/var/vdr/epg.data -l 1 --no-kbd --video=/var/vdr/record --local$
+#    -P'vnsiserver -t 5' $*"
+#export VDR_CHARSET_OVERRIDE="ISO-8859-15"
+#export LANG="de_DE.UTF-8"
+KILL="/usr/bin/killall -q -TERM"
+
+#create allowed_hosts.conf
+echo "$localnet	#any host on the local net" > /etc/vdr/allowed_hosts.conf
+echo "$localnet	#any host on the local net" > /etc/vdr/svdrphosts.conf
+echo "$localnet	#any host on the local net" > /etc/vdr/plugins/vnsiserver/allowed_hosts.conf
+echo "$localnet	#any host on the local net" > /etc/vdr/plugins/streamdev/allowed_hosts.conf
+rm /var/lib/vdr/svdrphosts.conf /var/lib/vdr/allowed_hosts.conf
+ln -s /etc/vdr/allowed_hosts.conf /var/lib/vdr/allowed_hosts.conf
+ln -s /etc/vdr/svdrphosts.conf /var/lib/vdr/svdrphosts.conf
+ln -s /etc/vdr/plugins/vnsiserver/allowed_hosts.conf /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf 
+ln -s /etc/vdr/plugins/streamdev/allowed_hosts.conf /var/lib/vdr/plugins/streamdev/allowed_hosts.conf 
+
+###########################put the following in the config script for vdr!!!! ##################################
 #autostart script
 cat > /etc/init/vdr.conf <<vdrconf
-description "vdr"
-start on (local-filesystems
-     and net-device-up IFACE=lo
-   and dvb-ready)
+# vdr upstart script
 
+description     "´linux video disk recorder"
+author          "Rainer Hochecker/Paul Krause"
+
+start on (filesystem and net-device-up IFACE!=lo and dvb-ready)
 stop on runlevel [!2345]
 nice -1
 
 pre-start script
-  while [ ! -e /dev/dvb/adapter0/frontend0 ]
-  do
-    sleep 1
-  done
+        while [ ! -e /dev/dvb/adaptert0/frontend0 ]
+        do
+                sleep 1
+        done
 end script
 
 script
-  su -c /usr/local/bin/runvdr vdr > /var/log/vdr.log 2>&1
+        su -c /usr/local/bin/runvdr vdr > /var/log/vdr.log 2>&1
 end script
 vdrconf
+
+#make script executable
+chmod +x /etc/init/vdr.conf
+
 #udev rule for dvb-card detection
 cat > /etc/udev/rules.d/85-vdr.rules <<dvbdetection
 #DVB
 SUBSYSTEM=="dvb" , KERNEL=="dvb0.frontend0", ACTION=="add", RUN+="/sbin/initctl --quiet emit --no-wait dvb-ready"
 dvbdetection
+
 #create channels.conf
 cat > /etc/vdr/channels.conf <<channels
 ZDF;ZDFmobil:490000:I999B8C999D999M999T999G999Y999:T:27500:545:546=deu,547=mis:551:0:514:0:0:0
@@ -81,12 +117,4 @@ VOX;CBC:666000:I999B8C34D0M16T8G8Y0:T:27500:545:0:551:b00:16418:8468:9474:0
 RTL Crime;CBC:666000:I999B8C34D0M16T8G8Y0:T:27500:705:0:0:b00:16428:8468:9474:0
 Passion;CBC:666000:I999B8C34D0M16T8G8Y0:T:27500:721:0:0:b00:16429:8468:9474:0
 channels
-#create allowed_hosts.conf
-echo "192.168.1.0/24" > /var/lib/vdr/allowed_hosts.conf
-rm /var/lib/vdr/svdrphosts.conf
-#link allowed_hosts.conf
-ln -s /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/svdrphosts.conf
-ln -s /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf 
-ln -s /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/plugins/xvdr/allowed_hosts.conf 
-ln -s /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/plugins/streamdev/allowed_hosts.conf 
-
+ln -s /etc/vdr/channels.conf /var/lib/vdr/channels.conf
