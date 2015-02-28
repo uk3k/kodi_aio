@@ -1,27 +1,6 @@
-#!/bin/bash
-#install vdr and compile dvbapi plugin
-if [ "$target" = "host" ] && [ "$live_tv" = "true" ]
-	then
-		add-apt-repository -y ppa:aap/vdr
-		apt-get update
-		apt-get upgrade -y
-		apt-get install -y vdr vdr-dev vdr-plugin-streamdev-server vdr-plugin-dvbapi w-scan git-core pkg-config libtool tsdecrypt libdvbcsa-dev libdvbcsa1 libusb-1.0-0 libusb-1.0-0-dev openssl libssl-dev libncurses5-dev subversion cmake	
-		apt-get build-dep -y vdr
-		cd $install/src/
-		git clone git://projects.vdr-developer.org/vdr.git
-		cd $install/src/vdr/PLUGINS/src
-		git clone https://github.com/FernetMenta/vdr-plugin-vnsiserver
-		ln -s vdr-plugin-vnsiserver vnsiserver
-		cd $install/src/vdr
-		make -j2
-		make install
-		vnsiversion=$(ls /usr/local/lib/vdr/ | grep vnsi | grep 2.* | awk '{gsub("libvdr-vnsiserver.so.", "");print}')
-		ln -s /usr/local/lib/vdr/libvdr-vnsiserver.so.$vnsiversion /usr/lib/vdr/plugins/libvdr-vnsiserver5.so.$vnsiversion
-fi
-
 useradd vdr
 usermod -a -G video vdr
-mkdir -p /var/vdr /var/vdr/record /etc/vdr/plugins/vnsiserver /etc/vdr/plugins/xvdr /etc/vdr/plugins/streamdev
+mkdir -p /var/vdr /var/vdr/record /var/lib/vdr/plugins/vnsiserver /var/lib/vdr/plugins/xvdr /var/lib/vdr/plugins/streamdev
 chown -R :video /var/vdr
 chmod -R g+w /var/vdr
 apt-get install -y build-essential libjpeg62-dev libcap-dev libfontconfig1-dev gettext libncursesw5-dev libncurses5-dev
@@ -50,9 +29,6 @@ cd ../../
 make -j2 && make install
 #link plugins?
 #####
-#copy configs
-cp diseqc.conf /etc/vdr
-cp sources.conf /etc/vdr
 sudo cp runvdr.template /usr/local/bin/runvdr
 #autostart script
 cat > /etc/init/vdr.conf <<vdrconf
@@ -106,10 +82,11 @@ RTL Crime;CBC:666000:I999B8C34D0M16T8G8Y0:T:27500:705:0:0:b00:16428:8468:9474:0
 Passion;CBC:666000:I999B8C34D0M16T8G8Y0:T:27500:721:0:0:b00:16429:8468:9474:0
 channels
 #create allowed_hosts.conf
-echo "192.168.1.0/24" > /etc/vdr/allowed_hosts.conf
+echo "192.168.1.0/24" > /var/lib/vdr/allowed_hosts.conf
+rm /var/lib/vdr/svdrphosts.conf
 #link allowed_hosts.conf
-ln -s /etc/vdr/allowed_hosts.conf /etc/vdr/svdrphosts.conf
-ln -s /etc/vdr/allowed_hosts.conf /etc/vdr/plugins/vnsiserver/allowed_hosts.conf 
-ln -s /etc/vdr/allowed_hosts.conf /etc/vdr/plugins/xvdr/allowed_hosts.conf 
-ln -s /etc/vdr/allowed_hosts.conf /etc/vdr/plugins/streamdev/allowed_hosts.conf 
+ln -s /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/svdrphosts.conf
+ln -s /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf 
+ln -s /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/plugins/xvdr/allowed_hosts.conf 
+ln -s /var/lib/vdr/allowed_hosts.conf /var/lib/vdr/plugins/streamdev/allowed_hosts.conf 
 
