@@ -1,6 +1,7 @@
 #!/bin/bash
 #install vdr & plugins from source
 
+#run this script as root or it will fail!
 #only for testing! Delete network detection from script when using it finally
 install="/tmp/"
 ip_addr=$(ip addr show | grep inet | grep $primary_iface | awk '{ print $2 }' | awk '{gsub("/24", "");print}')
@@ -35,7 +36,6 @@ ln -s vdr-epgsync-1.0.1 epgsync
 ln -s svdrpservice-1.0.0 svdrpservice
 cd ../../
 make -j2 && make install
-sudo cp runvdr.template /usr/local/bin/runvdr
 cat > /usr/local/bin/runvdr <<runvdr
 #!/bin/sh
 #vdr run options file
