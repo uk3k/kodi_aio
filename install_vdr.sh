@@ -34,6 +34,7 @@ wget http://vdr.schmirler.de/epgsync/vdr-epgsync-1.0.1.tgz
 wget http://vdr.schmirler.de/svdrpservice/vdr-svdrpservice-1.0.0.tgz
 tar -xzf vdr-epgsync-1.0.1.tgz
 tar -xzf vdr-svdrpservice-1.0.0.tgz
+rm *.tgz
 ln -s vdr-plugin-streamdev streamdev
 ln -s vdr-plugin-vnsiserver vnsiserver
 ln -s vdr-plugin-xvdr xvdr
