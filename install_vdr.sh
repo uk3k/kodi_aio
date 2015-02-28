@@ -19,6 +19,8 @@ if [ "$target" = "host" ] && [ "$live_tv" = "true" ]
 		ln -s /usr/local/lib/vdr/libvdr-vnsiserver.so.$vnsiversion /usr/lib/vdr/plugins/libvdr-vnsiserver5.so.$vnsiversion
 fi
 
+useradd vdr
+usermod -a -G video vdr
 apt-get install -y build-essential libjpeg62-dev libcap-dev libfontconfig1-dev gettext libncursesw5-dev libncurses5-dev
 apt-get build-dep -y vdr
 cd /$install/src
@@ -43,3 +45,36 @@ ln -s vdr-epgsync-1.0.1 epgsync
 ln -s svdrpservice-1.0.0 svdrpservice
 cd ../../
 make -j2 && make install
+#link plugins?
+#####
+sudo cp runvdr.template /usr/local/bin/runvdr
+#autostart script
+cat > /etc/init/vdr.conf << vdrconf
+description "vdr"
+start on (local-filesystems
+     and net-device-up IFACE=lo
+   and dvb-ready)
+
+stop on runlevel [!2345]
+nice -1
+
+pre-start script
+  while [ ! -e /dev/dvb/adapter0/frontend0 ]
+  do
+    sleep 1
+  done
+end script
+
+script
+  su -c /usr/local/bin/runvdr vdr > /var/log/vdr.log 2>&1
+end script
+vdrconf
+#udev rule for dvb-card detection
+cat > /etc/udev/rules.d/85-vdr.rules << dvbdetection
+#DVB
+SUBSYSTEM=="dvb" , KERNEL=="dvb0.frontend0", ACTION=="add", RUN+="/sbin/initctl --quiet emit --no-wait dvb-ready"
+dvbdetection
+#copy configs
+cp svdrphosts.conf /etc/vdr
+cp diseqc.conf /etc/vdr
+cp sources.conf /etc/vdr
