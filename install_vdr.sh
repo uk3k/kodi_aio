@@ -25,10 +25,11 @@ cd /$install/src
 #get vdr source
 git clone git://projects.vdr-developer.org/vdr.git
 cd /$install/src/vdr/PLUGINS/src
-#get plugin sources (streamdev, vnsi, xvdr, epgsync, svdrpservice)
+#get plugin sources (streamdev, vnsi, xvdr, dvbapi, epgsync, svdrpservice)
 git clone git://projects.vdr-developer.org/vdr-plugin-streamdev.git
 git clone https://github.com/FernetMenta/vdr-plugin-vnsiserver
 git clone https://github.com/pipelka/vdr-plugin-xvdr.git
+git clone https://github.com/manio/vdr-plugin-dvbapi.git
 wget http://vdr.schmirler.de/epgsync/vdr-epgsync-1.0.1.tgz
 wget http://vdr.schmirler.de/svdrpservice/vdr-svdrpservice-1.0.0.tgz
 tar -xzf vdr-epgsync-1.0.1.tgz
@@ -36,6 +37,7 @@ tar -xzf vdr-svdrpservice-1.0.0.tgz
 ln -s vdr-plugin-streamdev streamdev
 ln -s vdr-plugin-vnsiserver vnsiserver
 ln -s vdr-plugin-xvdr xvdr
+ln -s vdr-plugin-dvbapi dvbapi
 ln -s vdr-epgsync-1.0.1 epgsync
 ln -s svdrpservice-1.0.0 svdrpservice
 cd ../../
