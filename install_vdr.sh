@@ -38,15 +38,55 @@ make -j2 && make install
 sudo cp runvdr.template /usr/local/bin/runvdr
 cat > /usr/local/bin/runvdr <<runvdr
 #!/bin/sh
+#vdr run options file
+
+#path to binary
 VDRPRG="/usr/local/bin/vdr"
-VDROPTIONS="-w 60"
+#options
+VDROPTIONS="-w 60 export VDR_CHARSET_OVERRIDE="ISO-8859-15""
+#plugins
 VDRPLUGINS="-P vnsiserver -P dvbapi -P streamdev -P epgsync -P svdrpservice"
-VDRCMD="$VDRPRG $VDROPTIONS $VDRPLUGINS $*"
-#VDRCMD="$VDRPRG -w 60 -c /etc/vdr --epgfile=/var/vdr/epg.data -l 1 --no-kbd --video=/var/vdr/record --local$
-#    -P'vnsiserver -t 5' $*"
-#export VDR_CHARSET_OVERRIDE="ISO-8859-15"
-#export LANG="de_DE.UTF-8"
+
+#the command itself
+VDRCMD="\$VDRPRG \$VDROPTIONS \$VDRPLUGINS \$*"
+
 KILL="/usr/bin/killall -q -TERM"
+
+# Detect whether the DVB driver is already loaded
+# and return 0 if it *is* loaded, 1 if not:
+DriverLoaded()
+{
+  return 1
+}
+
+# Load all DVB driver modules needed for your hardware:
+LoadDriver()
+{
+  return 0
+}
+
+# Unload all DVB driver modules loaded in LoadDriver():
+UnloadDriver()
+{
+  return 0
+}
+
+# Load driver if it hasn't been loaded already:
+if ! DriverLoaded; then
+   LoadDriver
+   fi
+
+while (true) do
+      eval "\$VDRCMD"
+      if test \$? -eq 0 -o \$? -eq 2; then exit; fi
+      echo "`date` reloading DVB driver"
+      \$KILL \$VDRPRG
+      sleep 10
+      UnloadDriver
+      LoadDriver
+      echo "`date` restarting VDR"
+      done
+runvdr
 
 #create allowed_hosts.conf
 echo "$localnet	#any host on the local net" > /etc/vdr/allowed_hosts.conf
