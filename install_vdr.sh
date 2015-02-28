@@ -18,3 +18,25 @@ if [ "$target" = "host" ] && [ "$live_tv" = "true" ]
 		vnsiversion=$(ls /usr/local/lib/vdr/ | grep vnsi | grep 2.* | awk '{gsub("libvdr-vnsiserver.so.", "");print}')
 		ln -s /usr/local/lib/vdr/libvdr-vnsiserver.so.$vnsiversion /usr/lib/vdr/plugins/libvdr-vnsiserver5.so.$vnsiversion
 fi
+
+apt-get install -y build-essential libjpeg62-dev libcap-dev libfontconfig1-dev gettext libncursesw5-dev libncurses5-dev
+apt-get build-dep -y vdr
+cd /$install/src
+#get vdr source
+git clone git://projects.vdr-developer.org/vdr.git
+cd /$install/src/vdr/PLUGINS/src
+#get plugin sources (streamdev, vnsi, xvdr, epgsync, svdrpservice)
+git clone git://projects.vdr-developer.org/vdr-plugin-streamdev.git
+git clone https://github.com/FernetMenta/vdr-plugin-vnsiserver
+git clone https://github.com/pipelka/vdr-plugin-xvdr.git
+wget http://vdr.schmirler.de/epgsync/vdr-epgsync-1.0.1.tgz
+wget http://vdr.schmirler.de/svdrpservice/vdr-svdrpservice-1.0.0.tgz
+tar -xzf vdr-epgsync-1.0.1.tgz
+tar -xzf vdr-svdrpservice-1.0.0.tgz
+ln -s vdr-plugin-streamdev streamdev
+ln -s vdr-plugin-vnsiserver vnsiserver
+ln -s vdr-plugin-xvdr xvdr
+ln -s vdr-epgsync-1.0.1 epgsync
+ln -s svdrpservice-1.0.0 svdrpservice
+cd ../../
+make -j2 && make install
