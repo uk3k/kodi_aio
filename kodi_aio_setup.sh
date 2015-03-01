@@ -12,12 +12,6 @@
 #-fixed bug in networked detection
 #-improved wifi nic detection
 
-###internal test with picostick
-wget http://www.kernellabs.com/firmware/as102/as102_data1_st.hex
-wget http://www.kernellabs.com/firmware/as102/as102_data2_st.hex
-cp as102_data* /lib/firmware
-rm as102_data*
-
 ###Written by Paul Krause(uk3k)
 ###special thanks to Krautmaster and aseith.com for inspiration and all those users on the internet that allready have asked and answered the 
 ###questions i had while writing this script
@@ -44,9 +38,6 @@ client_standalone="false"	#install client as client for existing xbmc database h
 #####################################################################################
 
 #define script properties
-
-##exit script if user is not root
-[[ `id -u` -eq 0 ]] || { echo "Must be root to run script"; exit 1; }
 
 ##ubuntu version
 os=$(lsb_release -c | awk '{ print $2 }')
