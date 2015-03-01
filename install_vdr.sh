@@ -87,15 +87,15 @@ while (true) do
 runvdr
 chmod +x /usr/local/bin/runvdr
 #create allowed_hosts.conf
-echo "$localnet	#any host on the local net" > /etc/vdr/allowed_hosts.conf
-echo "$localnet	#any host on the local net" > /etc/vdr/svdrphosts.conf
-echo "$localnet	#any host on the local net" > /etc/vdr/plugins/vnsiserver/allowed_hosts.conf
-echo "$localnet	#any host on the local net" > /etc/vdr/plugins/streamdev-server/streamdevhosts.conf
+echo "$localnet	#any host on the local net" > /var/lib/vdr/allowed_hosts.conf
+echo "$localnet	#any host on the local net" > /var/lib/vdr/svdrphosts.conf
+echo "$localnet	#any host on the local net" > /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf
+echo "$localnet	#any host on the local net" > /var/lib/vdr/plugins/streamdev-server/streamdevhosts.conf
 rm /var/lib/vdr/svdrphosts.conf /var/lib/vdr/allowed_hosts.conf
-ln -s /etc/vdr/allowed_hosts.conf /var/lib/vdr/allowed_hosts.conf
-ln -s /etc/vdr/svdrphosts.conf /var/lib/vdr/svdrphosts.conf
-ln -s /etc/vdr/plugins/vnsiserver/allowed_hosts.conf /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf 
-ln -s /etc/vdr/plugins/streamdev-server/streamdevhosts.conf /var/lib/vdr/plugins/streamdev-server/streamdevhosts.conf 
+ln -s /var/lib/vdr/allowed_hosts.conf /etc/vdr/allowed_hosts.conf
+ln -s /var/lib/vdr/svdrphosts.conf /etc/vdr/svdrphosts.conf
+ln -s /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf /etc/vdr/plugins/vnsiserver/allowed_hosts.conf 
+ln -s /var/lib/vdr/plugins/streamdev-server/streamdevhosts.conf /etc/vdr/plugins/streamdev-server/streamdevhosts.conf 
 
 ###########################put the following in the config script for vdr!!!! ##################################
 #autostart script
@@ -131,7 +131,7 @@ SUBSYSTEM=="dvb" , KERNEL=="dvb0.frontend0", ACTION=="add", RUN+="/sbin/initctl 
 dvbdetection
 
 #create channels.conf
-cat > /etc/vdr/channels.conf <<channels
+cat > /var/lib/vdr/channels.conf <<channels
 ZDF;ZDFmobil:490000:I999B8C999D999M999T999G999Y999:T:27500:545:546=deu,547=mis:551:0:514:0:0:0
 3sat;ZDFmobil:490000:I999B8C999D999M999T999G999Y999:T:27500:561:562=deu,563=mis:567:0:515:0:0:0
 neo/KiKa;ZDFmobil:490000:I999B8C999D999M999T999G999Y999:T:27500:593:594=deu:599:0:517:0:0:0
@@ -155,4 +155,4 @@ VOX;CBC:666000:I999B8C34D0M16T8G8Y0:T:27500:545:0:551:b00:16418:8468:9474:0
 RTL Crime;CBC:666000:I999B8C34D0M16T8G8Y0:T:27500:705:0:0:b00:16428:8468:9474:0
 Passion;CBC:666000:I999B8C34D0M16T8G8Y0:T:27500:721:0:0:b00:16429:8468:9474:0
 channels
-ln -s /etc/vdr/channels.conf /var/lib/vdr/channels.conf
+ln -s /var/lib/vdr/channels.conf /etc/vdr/channels.conf
