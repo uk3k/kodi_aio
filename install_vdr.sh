@@ -4,6 +4,12 @@
 #run this script as root or it will fail!
 #only for testing! Delete network detection from script when using it finally
 install="/tmp/kodi_aio/"
+primary_iface=$(awk '{ print }' /etc/network/interfaces | grep iface | grep inet | grep dhcp | awk '{ print $2 }')
+active_iface=$(ip addr show | awk '/state UP/' | awk '{print $2}' | grep -m 1 : |sed s/:.*//) 
+if [ "$active_iface" != "$primary_iface" ]
+	then
+		primary_iface=$active_iface
+fi
 ip_addr=$(ip addr show | grep inet | grep $primary_iface | awk '{ print $2 }' | awk '{gsub("/24", "");print}')
 localnet=$(echo "$ip_addr" | awk -F '.' '{gsub($4, "0/24");print}')
 #
