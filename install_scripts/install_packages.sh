@@ -53,5 +53,10 @@ if [ "$pyload" = "true" ]
     pyloadpkg="python-crypto python-pycurl python-django openssl python-imaging python-beaker python-qt4 tesseract-ocr tesseract-ocr-eng gocr unrar rar "
 fi    
 
+if [ "$use_wifi" = "true" ]
+  then
+    wifipkg="wpasupplicant "
+fi
+
 #install packages
-apt-get install -y $basepkg $gfxpkg $kodipkg $mysqlpkg $vdrpkg $oscampkg $pyloadpkg
+apt-get install -y $basepkg $gfxpkg $kodipkg $mysqlpkg $vdrpkg $oscampkg $pyloadpkg $wifipkg
