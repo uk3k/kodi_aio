@@ -1,5 +1,5 @@
 #!/bin/bash
-###write configs for kodi
+###tweaks for kodi
 
 #allow nice changing
 echo "kodi             -       nice            -1" >> /etc/security/limits.conf
