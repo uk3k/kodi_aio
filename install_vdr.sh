@@ -42,7 +42,7 @@ cat > /usr/local/bin/runvdr <<runvdr
 #path to binary
 VDRPRG="/usr/local/bin/vdr"
 #options
-VDROPTIONS="-w 60 export VDR_CHARSET_OVERRIDE="ISO-8859-15""
+VDROPTIONS="-w 60 --video=/var/vdr/record export VDR_CHARSET_OVERRIDE="ISO-8859-15""
 #plugins
 VDRPLUGINS="-P vnsiserver -P dvbapi -P streamdev -P epgsync -P svdrpservice"
 
