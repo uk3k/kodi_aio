@@ -3,6 +3,11 @@
 
 #run this script as root or it will fail!
 #only for testing! Delete network detection from script when using it finally
+###internal test with picostick
+wget http://www.kernellabs.com/firmware/as102/as102_data1_st.hex
+wget http://www.kernellabs.com/firmware/as102/as102_data2_st.hex
+cp as102_data* /lib/firmware
+rm as102_data*
 install="/tmp/kodi_aio/"
 primary_iface=$(awk '{ print }' /etc/network/interfaces | grep iface | grep inet | grep dhcp | awk '{ print $2 }')
 active_iface=$(ip addr show | awk '/state UP/' | awk '{print $2}' | grep -m 1 : |sed s/:.*//) 
