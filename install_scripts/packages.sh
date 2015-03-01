@@ -12,7 +12,7 @@ echo "mysql-server mysql-server/root_password_again password $mysql_passwd" | de
 
 #define packages to install and preselect
 #base packages
-basepkg="linux-firmware linux-firmware-nonfree udisks upower xorg alsa-utils mesa-utils librtmp0 lirc libmad0 lm-sensors libmpeg2-4 avahi-daemon libnfs1 consolekit pm-utils samba "
+basepkg="lirc linux-firmware linux-firmware-nonfree udisks upower xorg alsa-utils mesa-utils librtmp0 libmad0 lm-sensors libmpeg2-4 avahi-daemon libnfs1 consolekit pm-utils samba "
 
 #select gfx packages
 if [ "$gfx" != "other" ]
