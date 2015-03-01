@@ -22,7 +22,7 @@ localnet=$(echo "$ip_addr" | awk -F '.' '{gsub($4, "0/24");print}')
 #the actual script starts here
 useradd vdr
 usermod -a -G video vdr
-mkdir -p $install/src /var/vdr /var/vdr/record /var/lib/vdr/plugins/vnsiserver /var/lib/vdr/plugins/streamdev-server /etc/vdr/plugins/vnsiserver /etc/vdr/plugins/streamdev 
+mkdir -p $install/src /var/vdr /var/vdr/record /var/lib/vdr/plugins/vnsiserver /var/lib/vdr/plugins/streamdev-server /etc/vdr/plugins/vnsiserver /etc/vdr/plugins/streamdev-server 
 chown -R :video /var/vdr /var/lib/vdr/
 chmod -R g+w /var/vdr /var/lib/vdr/
 apt-get install -y build-essential libjpeg62-dev libcap-dev libfontconfig1-dev gettext libncursesw5-dev libncurses5-dev
