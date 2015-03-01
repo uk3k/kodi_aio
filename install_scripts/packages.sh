@@ -38,6 +38,7 @@ mysqlpkg="mysql-server "
 if [ "$live_tv" = "true" ]
   then
     vdrpkg="build-essential libjpeg62-dev libcap-dev libfontconfig1-dev gettext libncursesw5-dev libncurses5-dev "
+    apt-get build-dep -y vdr
 fi
 
 #select oscam packages
