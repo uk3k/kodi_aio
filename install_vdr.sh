@@ -11,19 +11,18 @@ localnet=$(echo "$ip_addr" | awk -F '.' '{gsub($4, "0/24");print}')
 #the actual script starts here
 useradd vdr
 usermod -a -G video vdr
-mkdir -p $install/src /var/vdr /var/vdr/record /var/lib/vdr/plugins/vnsiserver /var/lib/vdr/plugins/streamdev /etc/vdr/plugins/vnsiserver /etc/vdr/plugins/streamdev 
-chown -R :video /var/vdr
-chmod -R g+w /var/vdr
+mkdir -p $install/src /var/vdr /var/vdr/record /var/lib/vdr/plugins/vnsiserver /var/lib/vdr/plugins/streamdev-server /etc/vdr/plugins/vnsiserver /etc/vdr/plugins/streamdev 
+chown -R :video /var/vdr /var/lib/vdr/
+chmod -R g+w /var/vdr /var/lib/vdr/
 apt-get install -y build-essential libjpeg62-dev libcap-dev libfontconfig1-dev gettext libncursesw5-dev libncurses5-dev
 apt-get build-dep -y vdr
 cd /$install/src
 git clone git://projects.vdr-developer.org/vdr.git
 cd /$install/src/vdr/PLUGINS/src
-#get plugin sources (streamdev, vnsi, dvbapi, epgsync, svdrpservice)
+#get plugin sources (streamdev, vnsi, dvbapi, svdrpservice)
 git clone git://projects.vdr-developer.org/vdr-plugin-streamdev.git
 git clone https://github.com/FernetMenta/vdr-plugin-vnsiserver
 git clone https://github.com/manio/vdr-plugin-dvbapi.git
-wget http://vdr.schmirler.de/epgsync/vdr-epgsync-1.0.1.tgz
 wget http://vdr.schmirler.de/svdrpservice/vdr-svdrpservice-1.0.0.tgz
 tar -xzf vdr-epgsync-1.0.1.tgz
 tar -xzf vdr-svdrpservice-1.0.0.tgz
@@ -44,7 +43,7 @@ VDRPRG="/usr/local/bin/vdr"
 #options
 VDROPTIONS="-w 60 --video=/var/vdr/record export VDR_CHARSET_OVERRIDE="ISO-8859-15""
 #plugins
-VDRPLUGINS="-P vnsiserver -P dvbapi -P streamdev -P epgsync -P svdrpservice"
+VDRPLUGINS="-P vnsiserver -P dvbapi -P streamdev-server -P svdrpservice"
 
 #the command itself
 VDRCMD="\$VDRPRG \$VDROPTIONS \$VDRPLUGINS \$*"
