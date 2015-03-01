@@ -35,13 +35,11 @@ git clone git://projects.vdr-developer.org/vdr-plugin-streamdev.git
 git clone https://github.com/FernetMenta/vdr-plugin-vnsiserver
 git clone https://github.com/manio/vdr-plugin-dvbapi.git
 wget http://vdr.schmirler.de/svdrpservice/vdr-svdrpservice-1.0.0.tgz
-tar -xzf vdr-epgsync-1.0.1.tgz
 tar -xzf vdr-svdrpservice-1.0.0.tgz
 rm *.tgz
 ln -s vdr-plugin-streamdev streamdev
 ln -s vdr-plugin-vnsiserver vnsiserver
 ln -s vdr-plugin-dvbapi dvbapi
-ln -s vdr-epgsync-1.0.1 epgsync
 ln -s svdrpservice-1.0.0 svdrpservice
 cd ../../
 make -j2 && make install
