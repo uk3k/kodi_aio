@@ -118,13 +118,6 @@ start on (filesystem and net-device-up IFACE!=lo and dvb-ready)
 stop on runlevel [!2345]
 nice -1
 
-pre-start script
-        while [ ! -e /dev/dvb/adaptert0/frontend0 ]
-        do
-                sleep 1
-        done
-end script
-
 script
         su -c /usr/local/bin/runvdr vdr > /var/log/vdr.log 2>&1
 end script
