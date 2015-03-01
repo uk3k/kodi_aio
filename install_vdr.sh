@@ -90,12 +90,12 @@ chmod +x /usr/local/bin/runvdr
 echo "$localnet	#any host on the local net" > /etc/vdr/allowed_hosts.conf
 echo "$localnet	#any host on the local net" > /etc/vdr/svdrphosts.conf
 echo "$localnet	#any host on the local net" > /etc/vdr/plugins/vnsiserver/allowed_hosts.conf
-echo "$localnet	#any host on the local net" > /etc/vdr/plugins/streamdev/allowed_hosts.conf
+echo "$localnet	#any host on the local net" > /etc/vdr/plugins/streamdev-server/allowed_hosts.conf
 rm /var/lib/vdr/svdrphosts.conf /var/lib/vdr/allowed_hosts.conf
 ln -s /etc/vdr/allowed_hosts.conf /var/lib/vdr/allowed_hosts.conf
 ln -s /etc/vdr/svdrphosts.conf /var/lib/vdr/svdrphosts.conf
 ln -s /etc/vdr/plugins/vnsiserver/allowed_hosts.conf /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf 
-ln -s /etc/vdr/plugins/streamdev/allowed_hosts.conf /var/lib/vdr/plugins/streamdev/allowed_hosts.conf 
+ln -s /etc/vdr/plugins/streamdev-server/allowed_hosts.conf /var/lib/vdr/plugins/streamdev-server/allowed_hosts.conf 
 
 ###########################put the following in the config script for vdr!!!! ##################################
 #autostart script
