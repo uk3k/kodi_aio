@@ -3,7 +3,7 @@
 
 #run this script as root or it will fail!
 #only for testing! Delete network detection from script when using it finally
-install="/tmp/kodi_aio/src"
+install="/tmp/kodi_aio/"
 ip_addr=$(ip addr show | grep inet | grep $primary_iface | awk '{ print $2 }' | awk '{gsub("/24", "");print}')
 localnet=$(echo "$ip_addr" | awk -F '.' '{gsub($4, "0/24");print}')
 #
@@ -11,7 +11,7 @@ localnet=$(echo "$ip_addr" | awk -F '.' '{gsub($4, "0/24");print}')
 #the actual script starts here
 useradd vdr
 usermod -a -G video vdr
-mkdir -p $install /var/vdr /var/vdr/record /var/lib/vdr/plugins/vnsiserver /var/lib/vdr/plugins/streamdev /etc/vdr/plugins/vnsiserver /etc/vdr/plugins/streamdev 
+mkdir -p $install/src /var/vdr /var/vdr/record /var/lib/vdr/plugins/vnsiserver /var/lib/vdr/plugins/streamdev /etc/vdr/plugins/vnsiserver /etc/vdr/plugins/streamdev 
 chown -R :video /var/vdr
 chmod -R g+w /var/vdr
 apt-get install -y build-essential libjpeg62-dev libcap-dev libfontconfig1-dev gettext libncursesw5-dev libncurses5-dev
