@@ -1,4 +1,6 @@
 #!/bin/bash
+###tweaks for pyload
+
 if [ "$pyload" = "true" ]
   then
     clear
