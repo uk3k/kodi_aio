@@ -1,6 +1,9 @@
 #!/bin/bash
 ###tweaks for kodi
 
+#set groups for user kodi
+usermod -a -G audio,video,fuse,cdrom,plugdev kodi
+
 #allow nice changing
 echo "kodi             -       nice            -1" >> /etc/security/limits.conf
 
