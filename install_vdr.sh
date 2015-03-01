@@ -41,7 +41,7 @@ cat > /usr/local/bin/runvdr <<runvdr
 #path to binary
 VDRPRG="/usr/local/bin/vdr"
 #options
-VDROPTIONS="-w 60 --video=/var/vdr/record export VDR_CHARSET_OVERRIDE="ISO-8859-15""
+VDROPTIONS="-w 60 --video=/var/vdr/record --epgfile=/var/vdr/epg.data export VDR_CHARSET_OVERRIDE="ISO-8859-15""
 #plugins
 VDRPLUGINS="-P vnsiserver -P dvbapi -P streamdev-server -P svdrpservice"
 
@@ -90,12 +90,12 @@ chmod +x /usr/local/bin/runvdr
 echo "$localnet	#any host on the local net" > /etc/vdr/allowed_hosts.conf
 echo "$localnet	#any host on the local net" > /etc/vdr/svdrphosts.conf
 echo "$localnet	#any host on the local net" > /etc/vdr/plugins/vnsiserver/allowed_hosts.conf
-echo "$localnet	#any host on the local net" > /etc/vdr/plugins/streamdev-server/allowed_hosts.conf
+echo "$localnet	#any host on the local net" > /etc/vdr/plugins/streamdev-server/streamdevhosts.conf
 rm /var/lib/vdr/svdrphosts.conf /var/lib/vdr/allowed_hosts.conf
 ln -s /etc/vdr/allowed_hosts.conf /var/lib/vdr/allowed_hosts.conf
 ln -s /etc/vdr/svdrphosts.conf /var/lib/vdr/svdrphosts.conf
 ln -s /etc/vdr/plugins/vnsiserver/allowed_hosts.conf /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf 
-ln -s /etc/vdr/plugins/streamdev-server/allowed_hosts.conf /var/lib/vdr/plugins/streamdev-server/allowed_hosts.conf 
+ln -s /etc/vdr/plugins/streamdev-server/streamdevhosts.conf /var/lib/vdr/plugins/streamdev-server/streamdevhosts.conf 
 
 ###########################put the following in the config script for vdr!!!! ##################################
 #autostart script
