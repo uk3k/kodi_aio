@@ -57,25 +57,22 @@ if [ "$os" != "trusty" ]
 fi
 
 ##script version
-version=v0701
+version=v0800
 
 ##working dir
-install="/var/tmp/install"
+install="/tmp/kodi_aio/"
 
 #download url
-url="http://hosting.uk3k.de/htpc"
-
-#path to scripts
-scripts="$install/scripts"
-
-#path to userinput scripts
-userinput="$scripts/user_input"
+url="https://github.com/uk3k/kodi_aio.git"
 
 #path to install scripts
-instscpt="$scripts/install"
+scripts="$install/install_scripts/"
 
-#path to config scripts
-cfgscpt="$scripts/config"
+#path to install scripts
+scripts="$install/config_scripts/"
+
+#path to user dialog scripts
+userinput="$install/dialog_scripts"
 
 #####################################################################################
 
@@ -83,13 +80,6 @@ cfgscpt="$scripts/config"
 #####################################################################################
 ########	Prepare system for installation and download scripts		####
 #####################################################################################
- 
-apt-get -y install unzip
-mkdir -p $install/src/
-cd $install/
-wget $url/$os/scripts/scripts_$version.zip
-unzip scripts_$version.zip
-chmod -R +x scripts/*
 
 
 #####################################################################################
