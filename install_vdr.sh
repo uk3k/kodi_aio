@@ -100,7 +100,6 @@ echo "$localnet	#any host on the local net" > /var/lib/vdr/allowed_hosts.conf
 echo "$localnet	#any host on the local net" > /var/lib/vdr/svdrphosts.conf
 echo "$localnet	#any host on the local net" > /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf
 echo "$localnet	#any host on the local net" > /var/lib/vdr/plugins/streamdev-server/streamdevhosts.conf
-rm /var/lib/vdr/svdrphosts.conf /var/lib/vdr/allowed_hosts.conf
 ln -s /var/lib/vdr/allowed_hosts.conf /etc/vdr/allowed_hosts.conf
 ln -s /var/lib/vdr/svdrphosts.conf /etc/vdr/svdrphosts.conf
 ln -s /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf /etc/vdr/plugins/vnsiserver/allowed_hosts.conf 
