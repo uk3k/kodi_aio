@@ -86,7 +86,7 @@ while (true) do
       echo "`date` restarting VDR"
       done
 runvdr
-
+chmod +x /usr/local/bin/runvdr
 #create allowed_hosts.conf
 echo "$localnet	#any host on the local net" > /etc/vdr/allowed_hosts.conf
 echo "$localnet	#any host on the local net" > /etc/vdr/svdrphosts.conf
