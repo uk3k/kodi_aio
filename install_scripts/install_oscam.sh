@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ "$oscam" = "true" ]
+if [ "$tv_oscam" = "true" ]
 	then
 		cd $install/src
 		rm -R oscam*
