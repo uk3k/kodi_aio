@@ -68,11 +68,11 @@ ln -s /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf /etc/vdr/plugins/vnsise
 ln -s /var/lib/vdr/plugins/streamdev-server/streamdevhosts.conf /etc/vdr/plugins/streamdev-server/streamdevhosts.conf 
 
 #scan for tv channels
-if [ "$w_scan" = "true" ]
+if [ "$tv_scan_channels" = "true" ]
 	then
-		if [ "$scan_type" = "c" ] || [ "$scan_type" = "s" ] || [ "$scan_type" = "t" ]
+		if [ "$tv_dvb_type_" = "c" ] || [ "$tv_dvb_type" = "s" ] || [ "$tv_dvb_type" = "t" ]
 			then
-				w_scan -R0 -T1 -f $scantype > /var/lib/vdr/channels.conf
+				w_scan -R0 -T1 -f $tv_dvb_type > /var/lib/vdr/channels.conf
 		fi
 fi
 
