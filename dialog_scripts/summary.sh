@@ -23,6 +23,7 @@ $tv_vdr
 $tv_dvb_type
 $tv_oscam
 $tv_prefcg_oscam
+$tv_provider
 $tv_cardreader
 $tv_scan
 
