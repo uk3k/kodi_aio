@@ -6,10 +6,10 @@ if [ "$(lspci | grep VGA | grep -o AMD)" != "AMD" ]
 	then
 		if [ "$(lspci | grep VGA | grep -o NVIDIA)" != "NVIDIA" ]
 			then 
-				gfx=$(lspci | grep VGA | grep -o Intel)
+				sys_gfx=$(lspci | grep VGA | grep -o Intel)
 			else
-				gfx="NVIDIA"
+				sys_gfx="NVIDIA"
 		fi
 	else
-		gfx="AMD"	
+		sys_gfx="AMD"	
 fi
