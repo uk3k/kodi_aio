@@ -2,12 +2,14 @@
 #!bin/bash
 #detect graphics vendor of the system
 
-gfx=$(lspci | grep VGA | grep -o AMD)
-if [ "$gfx" != "AMD" ]
+if [ "$(lspci | grep VGA | grep -o AMD)" != "AMD" ]
 	then
-		gfx=$(lspci | grep VGA | grep -o NVIDIA)
-		if [ "$gfx" != "NVIDIA" ]
+		if [ "$(lspci | grep VGA | grep -o NVIDIA)" != "NVIDIA" ]
 			then 
 				gfx=$(lspci | grep VGA | grep -o Intel )
+			else
+				gfx="NVIDIA"
 		fi
+	else
+		gfx="AMD"	
 fi
