@@ -13,3 +13,4 @@ if [ "$(lspci | grep VGA | grep -o AMD)" != "AMD" ]
 	else
 		gfx="AMD"	
 fi
+echo "$gfx"
