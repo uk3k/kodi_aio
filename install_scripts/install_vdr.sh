@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ "$live_tv" = "true" ]
+if [ "$tv_vdr" = "true" ]
   then
   useradd vdr
   usermod -a -G video vdr
