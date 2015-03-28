@@ -13,3 +13,10 @@ prepare_setup.sh --> put this on installer disk!
 /hw_detect/gfx_detection.sh
 /hw_detect/network_detection.sh
 /hw_detect/os_detection.sh
+
+/dialog_scripts/defaults.sh
+/dialog_scripts/summary.sh
+/dialog_scripts/ 
+/dialog_scripts/ 
+/dialog_scripts/ 
+
