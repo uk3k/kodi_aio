@@ -11,6 +11,8 @@ setup="default"             #default, custom
 sys_type="host"             #host, client
 . /gfx_detection            #run gfx_detection.sh to determine the actual graphics vendor of the system
 $sys_fgx                    #amd, nvidia, intel, other
+. /os_detection.sh          #run os_detection.sh to determine the actual operating system
+$sys_os                     #the actual operating system
 
 #media auto mount
 media_mount="false"         #false, true
@@ -30,6 +32,7 @@ $nw_dns1                    #detected nameserver #1
 $nw_dns2                    #detected nameserver #2
 
 #mysql
+sql_ip="$nw_ip"             #ip address of the lokal mysql-server
 sql_rootpw="Secure0n3"      #not really secure root password for the mysql server
 sql_userpw="kodi"           #pretty unsecure password for the sql-user
 
