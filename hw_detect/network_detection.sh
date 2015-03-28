@@ -20,7 +20,7 @@ nw_netmask=$(ifconfig $nw_iface | grep inet | grep 192 | sed s/^.*Mask.*://)
 nw_gateway=$(route -n | grep 'UG[ \t]' | awk '{print $2}')
 
 #define nameservers
-nw_dns1="$gateway"
+nw_dns1="$nw_gateway"
 nw_dns2="8.8.8.8"
 
 #check if there is a standard wifi-adapter
