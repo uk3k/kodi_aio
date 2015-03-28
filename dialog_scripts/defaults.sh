@@ -38,7 +38,7 @@ sql_userpw="kodi"           #pretty unsecure password for the sql-user
 
 #live-tv
 tv_vdr="true"               #false, true
-tv_dvb_type="dvbc"          #dvbc, dvbt, dvbs
+tv_dvb_type="c"             #c, t, s (dvb-*)
 tv_oscam="true"             #false, true
 tv_prefcg_oscam="true"      #false, true
 tv_provider="kbw"           #kbw(KabelBW), um(unity-media), kd(kabel deutschland), hdplus(hd+), will add more in the future 
