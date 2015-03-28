@@ -1,21 +1,6 @@
 #!/bin/bash
 #define default settings
 
-#version
-script_version="1.0 Alpha"
-
-#working dir
-install="/tmp/kodi_aio/"
-
-#path to install scripts
-scripts="$install/install_scripts/"
-
-#path to config scripts
-config="$install/config_scripts/"
-
-#path to user dialog scripts
-dialog="$install/dialog_scripts"
-
 #setup mode
 setup="default"             #default, custom
 
