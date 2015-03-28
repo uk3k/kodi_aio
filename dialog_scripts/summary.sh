@@ -1,35 +1,43 @@
 #!/bin/bash
-##define variables
+#print summary to txt-file before executing installer
 
-#system type
-$sys_type
+echo "General Information" > /home/kodi/summary.txt
+echo "Script-Version:     $script_version" >> /home/kodi/summary.txt
+echo "Operating-System:   $sys_os" >> /home/kodi/summary.txt
+echo "Setup mode:         $setup" >> /home/kodi/summary.txt
+echo "Grapics Vendor:     $sys_gfx" >> /home/kodi/summary.txt
+echo "" >> /home/kodi/summary.txt
 
-#media auto mount
-$media_mount
+echo "Network Configuration" >> /home/kodi/summary.txt
+echo "Primary Network Interface:  $nw_iface" >> /home/kodi/summary.txt
+echo "Wifi Adapter present:       $nw_wifi_present" >> /home/kodi/summary.txt
+echo "Use Wifi connection:        $nw_use_wifi" >> /home/kodi/summary.txt
+echo "Wifi SSID:                  $nw_wifi_ssid" >> /home/kodi/summary.txt
+echo "Wifi PSK:                   $nw_wifi_psk" >> /home/kodi/summary.txt
+echo "IP-Address:                 $nw_ip" >> /home/kodi/summary.txt
+echo "Netmask:                    $nw_netmask" >> /home/kodi/summary.txt
+echo "Gateway:                    $nw_gateway" >> /home/kodi/summary.txt
+echo "Nameserver #1:              $nw_dns1" >> /home/kodi/summary.txt
+echo "Nameserver #2:              $nw_dns2" >> /home/kodi/summary.txt
+echo "" >> /home/kodi/summary.txt
 
-#networking
-$nw_iface
-$nw_wifi_ssid
-$nw_wifi_psk
-$nw_ip
-$nw_netmask
-$nw_gateway
-$nw_dns1
-$nw_dns2
+echo "Mysql Settings" >> /home/kodi/summary.txt
+echo "Mysql-Server-IP:      $sql_ip" >> /home/kodi/summary.txt
+echo "Mysql Root Password:  $sql_rootpw" >> /home/kodi/summary.txt
+echo "Mysql User Password:  $sql_userpw" >> /home/kodi/summary.txt
+echo "" >> /home/kodi/summary.txt
 
-#mysql
-$sql_rootpw
-$sql_userpw
+echo "Live-TV Selections" >> /home/kodi/summary.txt
+echo "Install Live-TV support:                            $tv_vdr" >> /home/kodi/summary.txt
+echo "DVB-Type:                                           $tv_dvb_type" >> /home/kodi/summary.txt
+echo "Install local PayTV descrambling support (OSCAM):   $tv_oscam" >> /home/kodi/summary.txt
+echo "Preconfigure OSCAM for your PayTV-Provider:         $tv_precfg_oscam" >> /home/kodi/summary.txt
+echo "Selected PayTV-Provider:                            $tv_provider" >> /home/kodi/summary.txt
+echo "Selected Smart-Card-Reader vendor:                  $tv_cardreader" >> /home/kodi/summary.txt
+echo "Bus:ID of your Smart-Card-Reader:                   $tv_cr_busid (000:000=dummy)" >> /home/kodi/summary.txt
+echo "Scan for available TV-Channels:                     $tv_scan" >> /home/kodi/summary.txt
+echo "" >> /home/kodi/summary.txt
 
-#live-tv
-$tv_vdr
-$tv_dvb_type
-$tv_oscam
-$tv_prefcg_oscam
-$tv_provider
-$tv_cardreader
-$tv_scan
-
-#pyload
-$dl_pyload
-
+echo "Additional Packages" >> /home/kodi/summary.txt
+echo "Install Pyload Download-Manager:  $add_pyload" >> /home/kodi/summary.txt
+echo "" >> /home/kodi/summary.txt
