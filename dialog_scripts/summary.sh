@@ -3,7 +3,7 @@
 
 echo "General Information" > /home/kodi/summary.txt
 echo "Script-Version:     $script_version" >> /home/kodi/summary.txt
-echo "Operating-System:   $sys_os" >> /home/kodi/summary.txt
+echo "Ubuntu Release:     $sys_os" >> /home/kodi/summary.txt
 echo "Setup mode:         $setup" >> /home/kodi/summary.txt
 echo "Grapics Vendor:     $sys_gfx" >> /home/kodi/summary.txt
 echo "" >> /home/kodi/summary.txt
