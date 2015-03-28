@@ -8,6 +8,9 @@ $sys_type
 $media_mount
 
 #networking
+$nw_iface
+$nw_wifi_ssid
+$nw_wifi_psk
 $nw_ip
 $nw_netmask
 $nw_gateway
