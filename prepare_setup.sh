@@ -13,8 +13,15 @@ if [ "$(lsb_release -c | awk '{ print $2 }')" != "trusty" ]
 fi
 
 #exit if github is not reachable
-if [ -n "$(ping -c 3 github.com |grep time &>/dev/null)" ]
+if ping -c 3 github.com
 	then
+		echo "preparing system...please wait"
+		apt-get install -y git git-core > /dev/null
+		rm -r /tmp/* > /dev/null
+		git clone https://github.com/uk3k/kodi_aio.git /tmp >
+		chmod -R +x /tmp/*
+		. /tmp/kodi_aio_setup.sh
+	else
 		echo "Github.com is not reachable, please check your internet connection or try again later."
 		echo "This script can't be used as long Github.com is not reachable"
 		echo "or neither your internet connection isn't working correctly."
