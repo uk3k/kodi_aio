@@ -48,4 +48,4 @@ tv_prompt_scan="false"      #false, true; is set in custom setup by dvb-card_det
 tv_scan="false"             #false, true; always false if dvb-card_detection.sh fails in custom setup to find useable tv_cards
 
 #pyload
-dl_pyload="false"           #false, true; install pyload download manager
+add_pyload="false"           #false, true; install pyload download manager
