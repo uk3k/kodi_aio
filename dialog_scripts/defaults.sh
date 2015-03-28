@@ -9,9 +9,9 @@ setup="default"             #default, custom
 
 #system
 sys_type="host"             #host, client
-. /gfx_detection            #run gfx_detection.sh to determine the actual graphics vendor of the system
+. ../hw_detect/gfx_detection            #run gfx_detection.sh to determine the actual graphics vendor of the system
 $sys_fgx                    #amd, nvidia, intel, other
-. /os_detection.sh          #run os_detection.sh to determine the actual operating system
+. ../hw_detect/os_detection.sh          #run os_detection.sh to determine the actual operating system
 $sys_os                     #the actual operating system
 
 #media auto mount
@@ -19,7 +19,7 @@ media_mount="false"         #false, true
 
 #networking
 #assume networking is working as we were using netinstall
-. /network_detection.sh     #run network_detection.sh to get *value* for each variable
+. ../hw_detect/network_detection.sh     #run network_detection.sh to get *value* for each variable
 $nw_iface                   #detected primary network interface; if $nw_iface="eth*" AND $wifi_present="true"--> prompt; else keep interface
 $nw_wifi_present            #detected wifi state; if $nw_wifi_present="true" and $nw_iface!="wlan*" --> prompt, else false
 $nw_use_wifi                #false, true; see $nw_wifi_present                
