@@ -1,50 +1,22 @@
 #!/bin/bash
-###read actual network configuration
 
-#get primary network interface
-#if there's no iface configured in /etc/network/interfaces use the first active NIC (link-up) with a valid ipv4 address
-primary_iface=$(awk '{ print }' /etc/network/interfaces | grep iface | grep inet | grep dhcp | awk '{ print $2 }')
-active_iface=$(ip addr show | awk '/state UP/' | awk '{print $2}' | grep -m 1 : |sed s/:.*//) 
-if [ "$active_iface" != "$primary_iface" ]
+#check if system ready for setup
+clear
+#exit if script was not executed by user root (sudo doesn't work!)
+[[ `id -u` -eq 0 ]] || { echo "Must be root to run script"; exit 1; }
+
+#exit if operationg system is not Ubuntu 14.04
+if [ "$(lsb_release -c | awk '{ print $2 }')" != "trusty" ]
 	then
-		primary_iface=$active_iface
+		echo "This script only supports Ubuntu 14.04 LTS Trusty Thar"
+		exit 2
 fi
 
-#get dhcp assigned address
-ip_addr=$(ip addr show | grep inet | grep $primary_iface | awk '{ print $2 }' | awk '{gsub("/24", "");print}')
-
-#get netmask
-netmask=$(ifconfig $primary_iface | grep inet | grep 192 | sed s/^.*Mask.*://)
-
-#get default gateway
-gateway=$(route -n | grep 'UG[ \t]' | awk '{print $2}')
-
-#define nameservers
-dns1=$gateway
-dns2="8.8.8.8"
-
-#check if there is a standard wifi-adapter
-wifi_present=$(ifconfig -a | grep ^wlan.*)
-
-if [ -z "$wifi_present" ]
+#exit if networking is not working
+if [ -z "$(ping -c 3 github.com |grep time &>/dev/null)" ]
 	then
-		wifi_present=false
-	else
-		wifi_present=true
-fi
-
-#check if wifi was allready configured by ubiquity
-wifi_configured=$(cat /etc/network/interfaces | grep wpa-ssid)
-if [ -z "$wifi_configured" ]
-	then
-		wifi_configured=false
-	else
-		wifi_configured=true
-fi
-
-#read wifi access
-if [ "$wifi_configured" = "true" ] 
-	then 
-		ssid=$(cat /etc/network/interfaces | grep wpa-ssid | awk '{ print $2 }')
-		psk=$(cat /etc/network/interfaces | grep wpa-psk | awk '{ print $2 }')
+		echo "Github.com is not reachable, please check your internet connection or try again later."
+		echo "This script can't be executed as long Github.com is not reacheable"
+		echo "or neither your internet connection isn't working"
+		exit 3	
 fi
