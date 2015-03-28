@@ -1,0 +1,11 @@
+#allready finished scripts
+prepare_setup.sh --> put this on installer disk!
+
+/install_scripts/install_vdr.sh
+/install_scripts/
+/install_scripts/
+/hw_detect/card-reader_detection.sh
+/hw_detect/dvb-card_detection.sh
+/hw_detect/gfx_detection.sh
+/hw_detect/network_detection.sh
+/hw_detect/os_detection.sh
