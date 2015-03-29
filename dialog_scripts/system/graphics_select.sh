@@ -1,4 +1,5 @@
 #!/bin/bash
+#V1.0.0.0.A
 
 #Graphics vendor selection menu
 input=`whiptail --backtitle "$headline" \
