@@ -29,7 +29,7 @@ setup=$input
 #execute default or cutom setup routine
 if [ "$setup" = "Customize" ] 
 	then
-		. $dialog/customize_settings.sh
+		. $dialog/customize.sh
 	else
 		. $dialog/summary.sh
 fi
