@@ -19,7 +19,7 @@ input=`whiptail --backtitle "$headline" \
 		IP-Address:                     $nw_ip
 		Live-TV Support:                $tv_vdr
 		DVB-* Type:                     dvb-$tv_dvb_type
-		Install OSCAM SoftCam:          $tv_oscam
+		Install PayTV-Support:          $tv_oscam
 		Smart-Card-Reader:              $tv_cardreader
 		Pyload Download Manager:        $add_pyload \n\n " 30 100 2 \
                 "Default"        ""	\
