@@ -1,7 +1,7 @@
 #!/bin/bash
 #wifi-configuration
 
-if [ "$nw_wifi_present" = "true" ] && [ "$nw_iface" = "^wlan.*" ]
+if [ "$nw_iface" = "^wlan.*" ]
 	then
 	#ask for wifi configuration
 	if (whiptail --backtitle "$headline" --title "Configure Wifi" \
