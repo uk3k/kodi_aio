@@ -45,7 +45,7 @@ function customize-networking {
 #}
 
 #print selection menu
-input=`whiptail --backtitle "$headline" \
+whiptail --backtitle "$headline" \
         --title "Select Settings to customize" \
         --checklist "\nSelect the settings you want to customize \n\n " 30 100 7 \
                 "Graphics-Vendor"       ""      \
@@ -54,7 +54,7 @@ input=`whiptail --backtitle "$headline" \
                 "DVB-Type"              ""      \
                 "PayTV-Support"         ""      \
                 "Card-Reader"           ""      \
-                "Pyload"                ""      3>&1 1>&2 2>&3`
+                "Pyload"                ""      >input
 while read input
 do
 	case $input in
@@ -65,7 +65,7 @@ do
 		*)
 		;;
 	esac
-done
+done<input
 
 #networking
 #. $dialog/networking/iface_select.sh        #network settings: primary networking interface
