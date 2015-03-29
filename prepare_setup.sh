@@ -2,6 +2,7 @@
 
 #check if system ready for setup
 clear
+echo "checking and preparing system...please wait"
 #exit if script was not executed by user root (sudo doesn't work!)
 [[ `id -u` -eq 0 ]] || { echo "Must be root to run script"; exit 1; }
 
@@ -15,7 +16,6 @@ fi
 #exit if github is not reachable
 if ping -c 3 github.com > /dev/null
 	then
-		echo "preparing system...please wait"
 		apt-get install -y git git-core > /dev/null
 		rm -r /tmp/* /tmp/.git > /dev/null
 		git clone https://github.com/uk3k/kodi_aio.git /tmp
