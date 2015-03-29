@@ -55,12 +55,9 @@ input=`whiptail --backtitle "$headline" \
                 "PayTV-Support"         ""      \
                 "Card-Reader"           ""      \
                 "Pyload"                ""      3>&1 1>&2 2>&3`
-selections=$input
-
-#systemwhile read choice
-while read selections
+while read input
 do
-	case $selections in
+	case $input in
 		Graphics-Vendor) customize-system
 		;;
 		Networking) customize-networking
