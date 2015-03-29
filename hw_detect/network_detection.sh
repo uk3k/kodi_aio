@@ -1,5 +1,6 @@
 #!/bin/bash
 #read actual network configuration
+#V1.0.0.0.A
 
 #get primary network interface
 #if there's no iface configured in /etc/network/interfaces use the first active NIC (link-up) with a valid ipv4 address
