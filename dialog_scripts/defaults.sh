@@ -1,5 +1,6 @@
 #!/bin/bash
 #define default settings
+#V1.0.0.0.A
 
 #Headline
 headline="uk3k.de V$script_version Kodi All in One installer script"
