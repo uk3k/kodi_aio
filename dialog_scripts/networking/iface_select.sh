@@ -1,5 +1,6 @@
 #!/bin/bash
 #Select or enter primary network interface controller
+#V1.0.0.0.A
 
 if (whiptail --backtitle "$headline" \
         --title "Primary network interface" \
