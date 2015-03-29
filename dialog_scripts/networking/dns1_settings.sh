@@ -1,5 +1,6 @@
 #!/bin/bash
 #DNS1 for TCP/IP configuration
+#V1.0.0.0.A
 
 unset valid
 while [ -z "$nw_dns1" ] || [ -z "$valid_range" ] || [ -z "$valid" ] || [ "$valid_syntax" != "true" ];do
