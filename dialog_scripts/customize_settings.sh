@@ -1,7 +1,7 @@
 #!/bin/bash
 #customize default settings
 
-define functions for customizations
+#define functions for customizations
 #system
 function customize-system {
  . $dialog/system/graphics_select.sh        #system settings: graphics vendor
