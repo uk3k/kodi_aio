@@ -21,7 +21,7 @@ media_mount="false"         #false, true
 #assume networking is working as we were using netinstall
 . $hw/network_detection.sh          #run network_detection.sh to get *value* for each variable
 nw_iface="$nw_iface"                #detected primary network interface; if $nw_iface="eth*" AND $wifi_present="true"--> prompt; else keep interface
-nw_mode="$nw_mode"                  #DHCP, Static; detected ip address configuration
+nw_mode="Static"                    #DHCP, Static; detected ip address configuration
 nw_wifi_present="$nw_wifi_present"  #detected wifi state; if $nw_wifi_present="true" and $nw_iface!="wlan*" --> prompt, else false
 nw_use_wifi="$nw_use_wifi"          #false, true; see $nw_wifi_present                
 nw_wifi_ssid="$nw_wifi_ssid"        #detected wifi ssid; if $nw_use_wifi=true --> prompt; else unset
