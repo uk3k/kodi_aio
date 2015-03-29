@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #print welcome message
-whiptail --backtitle "uk3k.de V$script_version Kodi All in One installer script" \
+whiptail --backtitle "$headline" \
         --title "Disclaimer" \
         --msgbox "\nWelcome to the uk3k.de Kodi All in One installer script. \n\nPress Enter to continue" 12 100
 
@@ -10,7 +10,7 @@ whiptail --backtitle "uk3k.de V$script_version Kodi All in One installer script"
 . $dialog/defaults.sh
 
 #print setup mode selection
-input=`whiptail --backtitle "uk3k.de V$script_version Kodi All in One installer script" \
+input=`whiptail --backtitle "$headline" \
         --title "Setup mode" \
         --menu "\nDo you want use the default setup settings or customize them? \n\nMost important default settings are: \n
         Graphics Vendor:		$sys_gfx
