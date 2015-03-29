@@ -10,6 +10,7 @@ function customize-system {
 
 #mysql
 function customize-mysql {
+ . $dialog/mysql/server_ip.sh			#mysql settings: mysql-server ip address	
  . $dialog/mysql/root_password.sh        	#mysql settings: root password for mysql
  . $dialog/mysql/user_password.sh		#mysql settings: user password for kodi-database
 }
