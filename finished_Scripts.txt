@@ -17,7 +17,7 @@ prepare_setup.sh --> put this on installer disk!
 /dialog_scripts/defaults.sh
 /dialog_scripts/summary.sh
 /dialog_scripts/welcome.sh 
-/dialog_scripts/ 
+/dialog_scripts/system/graphics_select.sh 
 /dialog_scripts/networking/network_settings.sh
 /dialog_scripts/networking/iface_select.sh
 /dialog_scripts/networking/ip_settings.sh
