@@ -12,8 +12,8 @@ while [ -z "$nw_dns1" ] || [ -z "$valid_range" ] || [ -z "$valid" ] || [ "$valid
         valid_range="$(echo $nw_dns1 | awk -F'.' '$1 >=1 && $1 <=255 && $2 >=0 && $2 <=255 && $3 >=0 && $3 <=255 && $4 >=0 && $4 <=255 && $5 <0')"
     	valid_syntax="$(echo $nw_dns1 | rev | cut -c 1 )"
 		case "$valid_syntax" in
-        [0-9] ) valid_syntax=true;;
-        * )     valid_syntax=false;;
+        		[0-9] ) valid_syntax=true;;
+        		* )     valid_syntax=false;;
 		esac
     		if [ -z "$valid_range" ] || [ "$valid_syntax" != "true" ]
     		then
