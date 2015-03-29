@@ -7,7 +7,7 @@ whiptail --backtitle "$headline" \
 
 
 #execute defaults script to get missing variables
-. $dialog/defaults.sh
+. $dialog/defaults.sh > /dev/null
 
 #print setup mode selection
 input=`whiptail --backtitle "$headline" \
