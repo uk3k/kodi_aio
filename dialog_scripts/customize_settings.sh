@@ -20,29 +20,29 @@ function customize-networking {
 }
 
 #live-tv
-function customize-livetv {
+#function customize-livetv {
  #do something
-}
+#}
 
 #dvb-type
-function customize-dvbtype {
+#function customize-dvbtype {
  #do something
-}
+#}
 
 #oscam
-function customize-oscam {
+#function customize-oscam {
  #do something
-}
+#}
 
 #card-reader
-function customize-cardreader {
+#function customize-cardreader {
  #do something
-}
+#}
 
 #pyload
-function customize-pyload {
+#function customize-pyload {
  #do something
-}
+#}
 
 #print selection menu
 input=`whiptail --backtitle "$headline" \
