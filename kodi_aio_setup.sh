@@ -19,5 +19,4 @@ dialog="$install/dialog_scripts"
 #path to hardware detection scripts
 hw="$install/hw_detect"
 
-. $dialog/defaults.sh
-. $dialog/summary.sh
+. $dialog/welcome.sh
