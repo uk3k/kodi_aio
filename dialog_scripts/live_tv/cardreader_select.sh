@@ -7,3 +7,31 @@ input=`whiptail --backtitle "$headline" \
                 "smargo"           ""	\
                 "smartreader"      ""	3>&1 1>&2 2>&3`
 tv_cardreader=$input
+
+if [ "$tv_cr_busid" = "000:000" ]
+        then
+                if (whiptail --backtitle "$headline" \
+                --title "Card-Reader not found" \
+                --yesno "\nSetup couldn't find your Card-Reader automatically. \nDo you want to select it manually? \n\n " 15 100)
+        then
+                inputok="false"
+        else
+                inputok="true"
+                while [ "$inputok" = "false" ]; do
+                        read -ra array <<<$(lsusb)
+                        input=`whiptail --backtitle "$headline" \
+                        --notags \
+                        --title "Available USB-Devices" \
+                        --menu "\nSelect your Card-Reader \n " 16 100 4 "${array[@]}" 3>&1 1>&2 2>&3`
+                        nw_iface=$input
+                        if [ -z "$input" ]
+                                then
+                                        whiptail --backtitle "$headline" \
+                                        --title "Wrong input" \
+                                        --msgbox "\nNothing selected :-(. \n\nPlease try again" 15 100
+                                        inputok="false"
+                                else
+                                        inputok="true"
+                        fi
+                done
+fi
