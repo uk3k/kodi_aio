@@ -1,6 +1,18 @@
 #!/bin/bash
 #customize default settings
 
+#select settings to customize
+input=`whiptail --backtitle "$headline" \
+        --title "Select Settings to customize" \
+        --menu "\nSelect the settings you want to customize \n\n " 30 100 2 \
+                "Graphics Vendor"        ""	\
+                "Live-TV"        ""	\
+                "DVB-Type"        ""	\
+                "PayTV Support"      "" \
+                "Card-Reader"      "" \
+                "Pyload"      ""	3>&1 1>&2 2>&3`
+selections=$input
+
 #system
 . $dialog/system/graphics_select.sh        #system settings: graphics vendor
 
