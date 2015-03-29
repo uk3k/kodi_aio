@@ -24,3 +24,7 @@
 
 #network settings: wifi
 . $dialog/networking/wifi_settings.sh
+
+
+#print summary
+. $dialog/summary.sh
