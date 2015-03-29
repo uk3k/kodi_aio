@@ -4,7 +4,7 @@
 #select settings to customize
 input=`whiptail --backtitle "$headline" \
         --title "Select Settings to customize" \
-        --menu "\nSelect the settings you want to customize \n\n " 30 100 2 \
+        --checklist "\nSelect the settings you want to customize \n\n " 30 100 7 \
                 "Graphics-Vendor"       ""      \
                 "Networking"            ""      \
                 "Live-TV"               ""      \
