@@ -2,7 +2,7 @@
 #define default settings
 
 #setup mode
-setup="default"             #default, custom
+setup="Default"             #Default, Customize
 
 #system
 sys_type="host"             #host, client
