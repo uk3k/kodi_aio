@@ -1,6 +1,6 @@
-
 #!bin/bash
 #detect graphics vendor of the system
+#V1.0.0.0.A
 
 if [ "$(lspci | grep VGA | grep -o AMD)" != "AMD" ]
 	then
