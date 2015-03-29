@@ -1,5 +1,6 @@
 #!/bin/bash
 #customize default settings
+#V1.0.0.0.A
 
 #define functions for customizations
 #system
