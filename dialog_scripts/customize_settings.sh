@@ -1,6 +1,9 @@
 #!/bin/bash
 #customize default settings
 
+#system
+. $dialog/system/graphics_select.sh        #system settings: graphics vendor
+
 #networking
 . $dialog/networking/iface_select.sh        #network settings: primary networking interface
 . $dialog/networking/network_settings.sh    #network settings: DHCP/Static
