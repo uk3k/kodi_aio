@@ -1,5 +1,6 @@
 #!/bin/bash
 #network settings
+#V1.0.0.0.A
 
 input=`whiptail --backtitle "$headline" \
         --title "Network Settings" \
