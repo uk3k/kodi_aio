@@ -1,5 +1,6 @@
 #!/bin/bash
 #wifi-configuration
+#V1.0.0.0.A
 
 if [ "$nw_iface" != "^eth.*" ] && [ "$nw_wifi_present" = "true" ]
 	then
