@@ -14,9 +14,9 @@ input=`whiptail --backtitle "$headline" \
         --title "Setup mode" \
         --menu "\nDo you want use the default setup settings or customize them? \n\nMost important default settings are: \n
         Graphics Vendor:		$sys_gfx
-        Network Interface:              $nw_iface
+        Network Interface:		$nw_iface
 	IP-Address Settings:		$nw_mode
-        IP-Address:                     $ip_addr
+        IP-Address:			$nw_ip
 	Live-TV Support:		$tv_vdr
 	DVB-* Type:			dvb-$tv_dvb_type
 	Install OSCAM SoftCam:		$tv_oscam
