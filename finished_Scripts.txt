@@ -14,9 +14,6 @@ prepare_setup.sh --> put this on installer disk!
 /hw_detect/network_detection.sh
 /hw_detect/os_detection.sh
 
-/dialog_scripts/defaults.sh
-/dialog_scripts/summary.sh
-/dialog_scripts/welcome.sh 
 /dialog_scripts/system/graphics_select.sh 
 /dialog_scripts/networking/network_settings.sh
 /dialog_scripts/networking/iface_select.sh
