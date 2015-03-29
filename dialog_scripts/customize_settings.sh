@@ -55,7 +55,7 @@ whiptail --backtitle "$headline" \
                 "PayTV-Support"         ""	off      \
                 "Card-Reader"           ""	off      \
                 "Pyload"                ""	off      2>selections
-while read selections
+while read input
 do
 	case $input in
 		Graphics-Vendor) customize-system
