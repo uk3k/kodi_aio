@@ -47,7 +47,7 @@ function customize-networking {
 #print selection menu
 whiptail --backtitle "$headline" \
         --title "Select Settings to customize" \
-        --checklist "\nSelect the settings you want to customize \n\n " 30 100 7 \
+        --checklist --separate-output "\nSelect the settings you want to customize \n\n " 30 100 7 \
                 "Graphics-Vendor"       ""      \
                 "Networking"            ""      \
                 "Live-TV"               ""      \
