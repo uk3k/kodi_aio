@@ -1,5 +1,6 @@
 #!/bin/bash
 #print summary to txt-file before executing installer
+#V1.0.0.0.A
 
 echo "General Information" > /home/kodi/summary.txt
 echo "Script-Version:     $script_version" >> /home/kodi/summary.txt
