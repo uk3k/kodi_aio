@@ -1,5 +1,6 @@
 #!/bin/bash
 #IP-address for TCP/IP configuration
+#V1.0.0.0.A
 
 unset valid
 while [ -z "$nw_ip" ] || [ -z "$valid_range" ] || [ -z "$valid" ] || [ "$valid_syntax" != "true" ];do
