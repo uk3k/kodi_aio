@@ -1,12 +1,26 @@
 #!/bin/bash
 #customize default settings
 
-#Network settings DHCP/static
-input=`whiptail --backtitle "$headline" \
-        --title "Network Settings" \
-        --radiolist "\nSelect if you want to use static or DHCP TCP/IP settings. \n\nNote: It's highly recommended to use static TCP/IP settings for the host! \n\n " 15 100 2 \
-                "Static"        ""      on      \
-                "DHCP"          ""      off     3>&1 1>&2 2>&3`
-nw_mode=$input
+#network settings: primary networking interface
+. $dialog/networking/iface_select.sh
 
-#
+#network settings: DHCP/Static
+. $dialog/networking/network_settings.sh
+
+#network settings: ip address
+. $dialog/networking/ip_settings.sh
+
+#network settings: netmask
+. $dialog/networking/netmask_settings.sh
+
+#network settings: gateway
+. $dialog/networking/gateway_settings.sh
+
+#network settings: Nameserver #1
+. $dialog/networking/dns1_settings.sh
+
+#network settings: Nameserver #2
+. $dialog/networking/dns2_settings.sh
+
+#network settings: wifi
+. $dialog/networking/wifi_settings.sh
