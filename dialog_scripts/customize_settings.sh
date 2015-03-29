@@ -48,14 +48,14 @@ function customize-networking {
 whiptail --backtitle "$headline" \
         --title "Select Settings to customize" \
         --checklist --separate-output "\nSelect the settings you want to customize \n\n " 30 100 7 \
-                "Graphics-Vendor"       ""      \
-                "Networking"            ""      \
-                "Live-TV"               ""      \
-                "DVB-Type"              ""      \
-                "PayTV-Support"         ""      \
-                "Card-Reader"           ""      \
-                "Pyload"                ""      >input
-while read input
+                "Graphics-Vendor"       ""	off     \
+                "Networking"            ""	off      \
+                "Live-TV"               ""	off      \
+                "DVB-Type"              ""	off      \
+                "PayTV-Support"         ""	off      \
+                "Card-Reader"           ""	off      \
+                "Pyload"                ""	off      2>selections
+while read selections
 do
 	case $input in
 		Graphics-Vendor) customize-system
@@ -65,7 +65,7 @@ do
 		*)
 		;;
 	esac
-done<input
+done < selections
 
 #networking
 #. $dialog/networking/iface_select.sh        #network settings: primary networking interface
