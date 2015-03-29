@@ -10,6 +10,7 @@ echo "" >> /home/kodi/summary.txt
 
 echo "Network Configuration" >> /home/kodi/summary.txt
 echo "Primary Network Interface:  $nw_iface" >> /home/kodi/summary.txt
+echo "IP-Address Settings:        $nw_mode" >> /home/kodi/summary.txt
 echo "Wifi Adapter present:       $nw_wifi_present" >> /home/kodi/summary.txt
 echo "Use Wifi connection:        $nw_use_wifi" >> /home/kodi/summary.txt
 echo "Wifi SSID:                  $nw_wifi_ssid" >> /home/kodi/summary.txt
