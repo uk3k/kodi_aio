@@ -1,45 +1,35 @@
 #!/bin/bash
-###SndPi host initial setupscript
-###needed packages
-#git git-core
-
-##preset script vars
-version="1.0"
-stpntwrk="network"
-stpstrm="stream"
-
-##ensure scripts are executable
-chmod -R +x *.sh
-
-##read network specs
-. ./check_networking.sh
-
-##preset default settings:
-primary_iface=$primary_iface
-ipsetting="Static"
-ice_port="8000"
-ice_login="icecastadmin"
-ice_pass="secure"
-stream_name="streampi"
-stream_quality="0.6"
-stream_bitrate="256"
-stream_channels="2"
-stream_public="No"
-##############################
 
 #print welcome message
-whiptail --backtitle "uk3k.de V$version SndPi host initial setup" \
+whiptail --backtitle "uk3k.de V$script_version Kodi All in One installer script" \
         --title "Disclaimer" \
-        --msgbox "\nWelcome to the uk3k.de SndPi host initial setup script. \n\nPress Enter to continue" 12 100
-###############################
+        --msgbox "\nWelcome to the uk3k.de Kodi All in One installer script. \n\nPress Enter to continue" 12 100
 
-##execute default setup if posible
-if [ -n "$primary_iface" ] && [ -n "$ip_addr" ] 
-	then #check if eth or wifi is ok
-		if [ "$primary_iface" = "eth0" ] || [ "$wifi_configured" = "true" ]
-			then
-				. ./setup_default.sh
-			else
-				. ./setup_custom.sh
-		fi
+
+#execute defaults script to get missing variables
+. $dialog/defaults.sh
+
+#print setup mode selection
+input=`whiptail --backtitle "uk3k.de V$script_version Kodi All in One installer script" \
+        --title "Setup mode" \
+        --menu "\nDo you want use the default setup settings or customize them? \n\nMost important default settings are: \n
+        Graphics Vendor:		$sys_gfx
+        Network Interface:              $nw_iface
+	IP-Address Settings:		$nw_mode
+        IP-Address:                     $ip_addr
+	Live-TV Support:		$tv_vdr
+	DVB-* Type:			dvb-$tv_dvb_type
+	Install OSCAM SoftCam:		$tv_oscam
+	Smart-Card-Reader:		$tv_cardreader
+	Pyload Download Manager:	$add_pyload \n\n " 30 100 2 \
+                "Default"        ""	\
+                "Customize"      ""	3>&1 1>&2 2>&3`
+setup=$input
+
+#execute default or cutom setup routine
+if [ "$setup" = "Customize" ] 
+	then
+		. $dialog/customize_settings.sh
+	else
+		. $dialog/summary.sh
 fi
