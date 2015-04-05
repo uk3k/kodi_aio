@@ -5,7 +5,7 @@ if [ "$tv_vdr" = "true" ] && [ "$tv_oscam" = "true" ]
   then
     input=`whiptail --backtitle "$headline" \
         --title "Pay-TV Provider" \
-        --menu "\nSelect Pay-/HD-TV provider \n\n " 30 100 2 \
+        --menu "\nSelect your Pay-/HD-TV provider: \n\n " 30 100 5 \
                 "UM"        "Unity Media"	        \
                 "KBW"       "KabelBW"	            \
                 "KD"        "Kabel Deutschland"   \
