@@ -14,4 +14,6 @@ if [ "$tv_vdr" = "true" ]
       DVB-S)  tv_dvb_type="T";;
       DVB-C)  tv_dvb_type="C";;
     esac
+  else
+    tv_dvb_type="None"
 fi
