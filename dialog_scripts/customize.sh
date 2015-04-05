@@ -64,7 +64,7 @@ do
 		Networking) 	customize-networking	;;        
                 Live-TV) 	customize-livetv	;;
                 Other) 		customize-additional	;;
-		*)		defaults		;;
+		*)					;;
 	esac
 done < selections
 
