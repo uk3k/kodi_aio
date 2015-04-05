@@ -43,6 +43,10 @@ function customize-additional {
 . $dialog/additional/pyload_select.sh		#additional stuff settings: install pyload download manager
 }
 
+function defaults {
+ . $dialog/defaults.sh				#run the defaults-script again
+}
+
 #print selection menu
 whiptail --backtitle "$headline" \
         --title "Select Settings to customize" \
@@ -60,7 +64,7 @@ do
 		Networking) 	customize-networking	;;        
                 Live-TV) 	customize-livetv	;;
                 Additional Stuff) customize-additional	;;
-		*)					;;
+		*)		defaults		;;
 	esac
 done < selections
 
