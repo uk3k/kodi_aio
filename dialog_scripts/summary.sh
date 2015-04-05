@@ -7,7 +7,7 @@ echo "Script-Version:     $script_version" >> /home/kodi/summary.txt
 echo "Ubuntu Release:     $sys_os" >> /home/kodi/summary.txt
 echo "Setup mode:         $setup" >> /home/kodi/summary.txt
 echo "Grapics Vendor:     $sys_gfx" >> /home/kodi/summary.txt
-echo "" >> /home/kodi/summary.txt
+echo "-----------------------------" >> /home/kodi/summary.txt
 
 echo "Network Configuration" >> /home/kodi/summary.txt
 echo "Primary Network Interface:  $nw_iface" >> /home/kodi/summary.txt
@@ -21,13 +21,13 @@ echo "Netmask:                    $nw_netmask" >> /home/kodi/summary.txt
 echo "Gateway:                    $nw_gateway" >> /home/kodi/summary.txt
 echo "Nameserver #1:              $nw_dns1" >> /home/kodi/summary.txt
 echo "Nameserver #2:              $nw_dns2" >> /home/kodi/summary.txt
-echo "" >> /home/kodi/summary.txt
+echo "-----------------------------" >> /home/kodi/summary.txt
 
 echo "Mysql Settings" >> /home/kodi/summary.txt
 echo "Mysql-Server-IP:      $sql_ip" >> /home/kodi/summary.txt
 echo "Mysql Root Password:  $sql_rootpw" >> /home/kodi/summary.txt
 echo "Mysql User Password:  $sql_userpw" >> /home/kodi/summary.txt
-echo "" >> /home/kodi/summary.txt
+echo "-----------------------------" >> /home/kodi/summary.txt
 
 echo "Live-TV Selections" >> /home/kodi/summary.txt
 echo "Install Live-TV support:                            $tv_vdr" >> /home/kodi/summary.txt
@@ -38,8 +38,8 @@ echo "Selected PayTV-Provider:                            $tv_provider" >> /home
 echo "Selected Smart-Card-Reader vendor:                  $tv_cardreader" >> /home/kodi/summary.txt
 echo "Bus:ID of your Smart-Card-Reader:                   $tv_cr_busid (000:000=dummy)" >> /home/kodi/summary.txt
 echo "Scan for available TV-Channels:                     $tv_scan" >> /home/kodi/summary.txt
-echo "" >> /home/kodi/summary.txt
+echo "-----------------------------" >> /home/kodi/summary.txt
 
 echo "Additional Packages" >> /home/kodi/summary.txt
 echo "Install Pyload Download-Manager:  $add_pyload" >> /home/kodi/summary.txt
-echo "" >> /home/kodi/summary.txt
+echo "-----------------------------" >> /home/kodi/summary.txt
