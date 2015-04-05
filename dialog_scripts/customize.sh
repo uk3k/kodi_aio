@@ -56,7 +56,7 @@ whiptail --backtitle "$headline" \
                 "Networking"            ""	on      \
                 "Live-TV"               ""	on      \
                 "Other" 		""	on      2>selections
-while read selections
+while read input
 do
 	case $input in
 		System) 	customize-system	;;
