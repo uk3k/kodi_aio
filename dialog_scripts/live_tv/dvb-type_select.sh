@@ -5,7 +5,7 @@ if [ "$tv_vdr" = "true" ]
   then
     input=`whiptail --backtitle "$headline" \
         --title "Setup mode" \
-        --menu "\nSelect your broadcasting system/TV-Card type: \n\n " 30 100 2 \
+        --menu "\nSelect your broadcasting system/TV-Card type: \n\n " 30 100 3 \
                 "DVB-T"       ""	\
                 "DVB-S"       ""	\
                 "DVB-C"       ""  3>&1 1>&2 2>&3`
