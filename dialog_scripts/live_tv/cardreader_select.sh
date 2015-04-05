@@ -25,7 +25,7 @@ if [ "$tv_vdr" = "true" ] && [ "$tv_oscam" = "true" ]
                                 --notags \
                                 --title "Available USB-Devices" \
                                 --menu "\nSelect your Card-Reader \n " 16 100 4 "${array[@]}" 3>&1 1>&2 2>&3`
-                                nw_iface=$input
+                                tv_cr_busid=$input
                                 if [ -z "$input" ]
                                         then
                                                 whiptail --backtitle "$headline" \
