@@ -37,4 +37,5 @@ if [ "$tv_vdr" = "true" ] && [ "$tv_oscam" = "true" ]
                         done
         else
                 tv_cardreader="None"       
-fi
+        fi
+fi        
