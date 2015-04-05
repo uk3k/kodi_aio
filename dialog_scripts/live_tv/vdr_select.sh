@@ -1,9 +1,9 @@
 #!/bin/bash
 #enable live-tv support
 
-if( whiptail --backtitle "$headline" \
+if (whiptail --backtitle "$headline" \
         --title "Enable Live-TV" \
-        --yesno "\nInstall VDR to enable Live-TV support and tv-recording features? \n\n " 15 100 )
+        --yesno "\nInstall VDR to enable Live-TV support and tv-recording features? \n\n " 15 100)
  then
     tv_vdr="true"
   else
