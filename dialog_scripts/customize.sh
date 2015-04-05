@@ -55,17 +55,12 @@ whiptail --backtitle "$headline" \
 while read input
 do
 	case $input in
-		System) 	customize-system
-		;;
-		MySQL) 		customize-mysql
-		;;
-		Networking) 	customize-networking
-                ;;        
-                Live-TV) 	customize-livetv
-                ;;
-                Additional Stuff) customize-additional
-		*)
-		;;
+		System) 	customize-system	;;
+		MySQL) 		customize-mysql		;;
+		Networking) 	customize-networking	;;        
+                Live-TV) 	customize-livetv	;;
+                Additional Stuff) customize-additional	;;
+		*)					;;
 	esac
 done < selections
 
