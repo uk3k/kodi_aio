@@ -55,8 +55,8 @@ whiptail --backtitle "$headline" \
                 "MySQL"			""	on     \
                 "Networking"            ""	on      \
                 "Live-TV"               ""	on      \
-                "Other" 		""	on      2>$input
-while read input
+                "Other" 		""	on      2>selections
+while read selections
 do
 	case $input in
 		System) 	customize-system	;;
