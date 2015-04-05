@@ -1,7 +1,7 @@
 #!/bin/bash
 #use predefined settings for paytv provider
 
-if [ "$tv_vdr" = "true" ] && [ "$tv_oscam" = "true" ]
+if [ "$tv_vdr" = "true" ] && [ "$tv_oscam" = "true" ] && [ "$tv_cardreader" != "None" ]
   then
     input=`whiptail --backtitle "$headline" \
         --title "Pay-TV Provider" \
