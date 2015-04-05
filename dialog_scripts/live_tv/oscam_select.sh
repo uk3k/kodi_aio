@@ -3,12 +3,13 @@
 
 if [ "$tv_vdr" = "true" ]
   then
-    input=`whiptail --backtitle "$headline" \
+    if (whiptail --backtitle "$headline" \
             --title "Install OCAM" \
-            --yesno "\nInstall OSCAM to descramble Pay-/HD-TV? \n\n " 15 100\`
-    if [ "$input" = "0" ]
+            --yesno "\nInstall OSCAM to descramble Pay-/HD-TV? \n\n " 15 100)
       then
         tv_oscam="true"
+      else
+        tv_oscam="false"
     fi
   else
     tv_oscam="false"
