@@ -3,12 +3,13 @@
 
 if [ "$tv_vdr" = "true" ] && [ "$tv_dvb_type" != "None" ] && [ "$tv_prompt_scan" = "true" ]
   then
-    input=`whiptail --backtitle "$headline" \
+    if (whiptail --backtitle "$headline" \
           --title "Scan for TV-Channels" \
-          --yesno "\nDo you want to automatically scan for all available TV-Channels? \n\n " 15 100 \`
-    if [ "$input" = "0" ]
+          --yesno "\nDo you want to automatically scan for all available TV-Channels? \n\n " 15 100)
       then
         tv_scan="true"
+      else
+        tv_scan="false"
     fi
   else
     tv_scan="false"
