@@ -48,14 +48,14 @@ function defaults {
 }
 
 #print selection menu
-whiptail --backtitle "$headline" \
+input=`whiptail --backtitle "$headline" \
         --title "Select Settings to customize" \
         --checklist --separate-output "\nSelect the settings you want to customize \n\n " 30 100 5 \
                 "System"		""	on     \
                 "MySQL"			""	on     \
                 "Networking"            ""	on      \
                 "Live-TV"               ""	on      \
-                "Additional Stuff"      ""	on      2>selections
+                "Other" 		""	on      3>&1 1>&2 2>&3`
 while read input
 do
 	case $input in
@@ -63,7 +63,7 @@ do
 		MySQL) 		customize-mysql		;;
 		Networking) 	customize-networking	;;        
                 Live-TV) 	customize-livetv	;;
-                Additional Stuff) customize-additional	;;
+                Other) 		customize-additional	;;
 		*)		defaults		;;
 	esac
 done < selections
