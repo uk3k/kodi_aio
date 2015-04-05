@@ -14,10 +14,11 @@ if [ "$tv_vdr" = "true" ] && [ "$tv_oscam" = "true" ]
                         if (whiptail --backtitle "$headline" \
                         --title "Card-Reader not found" \
                         --yesno "\nSetup couldn't find your Card-Reader automatically. \nDo you want to select it manually? \n\n " 15 100)
-                then
-                        inputok="false"
-                else
-                        inputok="true"
+                                then
+                                        inputok="false"
+                                else
+                                        inputok="true"
+                        fi
                         while [ "$inputok" = "false" ]; do
                                 read -ra array <<<$(lsusb)
                                 input=`whiptail --backtitle "$headline" \
