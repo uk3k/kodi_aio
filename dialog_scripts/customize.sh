@@ -34,7 +34,7 @@ function customize-livetv {
 . $dialog/live_tv/dvb-type_select.sh		#live-tv settings: select dvb-type
 . $dialog/live_tv/scan_channels_select.sh	#live-tv settings: scan channels after setup
 . $dialog/live_tv/oscam_select.sh		#live-tv settings: enable paytv descrambling support
-. $dialog/live_tv/card-reader_select.sh		#live-tv settings: select cardreader for oscam
+. $dialog/live_tv/cardreader_select.sh		#live-tv settings: select cardreader for oscam
 . $dialog/live_tv/precfg_oscam_select.sh	#live-tv settings: preconfigure paytv-provider for oscam
 } 
 
