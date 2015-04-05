@@ -35,7 +35,7 @@ if [ "$tv_vdr" = "true" ] && [ "$tv_oscam" = "true" ]
                                                 inputok="true"
                                 fi
                         done
+        fi        
         else
                 tv_cardreader="None"       
-        fi
 fi        
