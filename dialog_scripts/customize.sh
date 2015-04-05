@@ -48,15 +48,15 @@ function defaults {
 }
 
 #print selection menu
-input=`whiptail --backtitle "$headline" \
+whiptail --backtitle "$headline" \
         --title "Select Settings to customize" \
         --checklist --separate-output "\nSelect the settings you want to customize \n\n " 30 100 5 \
                 "System"		""	on     \
                 "MySQL"			""	on     \
                 "Networking"            ""	on      \
                 "Live-TV"               ""	on      \
-                "Other" 		""	on      3>&1 1>&2 2>&3`
-while read $input
+                "Other" 		""	on      2>$input`
+while read input
 do
 	case $input in
 		System) 	customize-system	;;
