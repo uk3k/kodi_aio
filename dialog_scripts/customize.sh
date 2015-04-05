@@ -6,6 +6,7 @@
 #system
 function customize-system {
  . $dialog/system/graphics_select.sh        	#system settings: graphics vendor
+ . $dialog/system/automount.sh        		#system settings: check for media files
 }
 
 #mysql
