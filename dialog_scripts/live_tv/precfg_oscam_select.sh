@@ -9,13 +9,13 @@ if [ "$tv_vdr" = "true" ] && [ "$tv_oscam" = "true" ] && [ "$tv_cardreader" != "
                 "UM"        "Unity Media"	        \
                 "KBW"       "KabelBW"	            \
                 "KD"        "Kabel Deutschland"   \
-                "HD Plus"   "HD+"                 \
+                "HD+"       "HD Plus"                 \
                 "SKY"       "SKY Deutschland" 3>&1 1>&2 2>&3`
     case $input in
       UM)       tv_provider="UM"      ;;
       KBW)      tv_provider="KBW"     ;;
       KD)       tv_provider="KD"      ;;
-      HD Plus)  tv_provider="HDPlus"  ;;
+      HD+)      tv_provider="HDPlus"  ;;
       SKY)      tv_provider="SKY"     ;;
     esac
   else
