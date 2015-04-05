@@ -55,7 +55,7 @@ whiptail --backtitle "$headline" \
                 "MySQL"			""	on     \
                 "Networking"            ""	on      \
                 "Live-TV"               ""	on      \
-                "Other" 		""	on      2>$input`
+                "Other" 		""	on      2>$input
 while read input
 do
 	case $input in
