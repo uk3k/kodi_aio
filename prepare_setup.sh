@@ -39,7 +39,7 @@ fi
 if ping -c 3 github.com > /dev/null
 	then
 		apt-get install -y git git-core > /dev/null
-		rm -r /tmp/* /tmp/.git > /dev/null
+		rm -r /tmp/kodi_aio /tmp/kodi_aio/.git > /dev/null
 		git clone https://github.com/uk3k/kodi_aio.git /tmp/kodi_aio
 		chmod -R +x /tmp/* > /dev/null
 		. /tmp/kodi_aio/kodi_aio_setup.sh
