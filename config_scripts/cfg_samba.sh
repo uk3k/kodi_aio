@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$target" = "host" ]
+if [ "$sys_type" = "host" ]
 	then
 
 #samba configuration file
