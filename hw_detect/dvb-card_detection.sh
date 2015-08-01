@@ -4,7 +4,9 @@
 
 if [ -n "$(ls /dev/dvb/ | grep ^adapter.*)" ]
   then
+    tv_vdr="true" 
     tv_prompt_scan="true"
   else
+    tv_vdr="false" 
     tv_prompt_scan="false"
 fi
