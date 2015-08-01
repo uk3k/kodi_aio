@@ -3,7 +3,7 @@
 #works actually only for smargo
 #V1.0.0.0.A
 
-if [ $tv_cardreader = "Smargo" ] 
+if [ "$tv_cardreader" = "Smargo" ] 
   then
     if [ $"(lsusb | grep "Future Technology")" ]
       then
