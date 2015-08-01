@@ -44,7 +44,7 @@ fi
 #select oscam packages
 if [ "$tv_oscam" = "true" ]
   then
-    oscampkg="cmake subversion openssl libssl-dev libusb-dev "
+    oscampkg="cmake subversion openssl libssl-dev libusb-dev libusb-1.0 "
 fi
 
 #select pyload packages
