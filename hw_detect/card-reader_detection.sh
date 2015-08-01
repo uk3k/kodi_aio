@@ -10,10 +10,6 @@ if [ "$tv_cardreader" = "Smargo" ]
         tv_cr_busid=$(lsusb | grep "Future Technology" | awk -v OFS=':' '{print $2,$4}' | sed s/://2)
       else
         tv_cr_busid="000:000"
-        tv_oscam="false"
-        tv_prefcg_oscam="false"
-        tv_provider="None"
-        tv_cardreader="None" 
     fi
   else
     tv_cr_busid="000:000"
