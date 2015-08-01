@@ -1,7 +1,7 @@
 #!/bin/bash
 ###tweaks for oscam
 
-if [ "$oscam" = "true" ]
+if [ "$tv_oscam" = "true" ]
 	then
 	
 #create folder for oscam configs
