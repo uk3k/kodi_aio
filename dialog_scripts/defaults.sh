@@ -39,15 +39,26 @@ sql_rootpw="Secure0n3"      #not really secure root password for the mysql serve
 sql_userpw="kodi"           #pretty unsecure password for the sql-user
 
 #live-tv
-tv_vdr="true"                       #false, true
-tv_dvb_type="C"                     #C, T, S. None (dvb-*)
-tv_oscam="true"                     #false, true
-tv_prefcg_oscam="true"              #false, true
-tv_provider="KBW"                   #KBW(KabelBW), UM(unity-media), KD(kabel deutschland), HDPlus(hd+), SKY(Deutschland), None will add more in the future 
-tv_cardreader="Smargo"              #Smargo, Smartreader, None
-. $hw/card-reader_detection.sh      #run card-reader_detection.sh to find card-reader
-tv_prompt_scan="false"              #false, true; is set in custom setup by dvb-card_detection.sh to true if any useable tv-cards were found
-tv_scan="false"                     #false, true; always false if dvb-card_detection.sh fails in custom setup to find useable tv_cards
+. $hw/dvb-card_detection.sh         #run dvb-card_detection.sh to determine if live-tv is possible
+if [ "$tv_vdr" = "true" ]
+  then
+    tv_dvb_type="C"                     #C, T, S. None (dvb-*)
+    tv_oscam="true"                     #false, true
+    tv_prefcg_oscam="true"              #false, true
+    tv_provider="KBW"                   #KBW(KabelBW), UM(unity-media), KD(kabel deutsc hland), HDPlus(hd+), SKY(Deutschland), None will add more in the future 
+    tv_cardreader="Smargo"              #Smargo, Smartreader, None
+    . $hw/card-reader_detection.sh      #run card-reader_detection.sh to find card-reader
+    tv_prompt_scan="false"              #false, true; is set in custom setup by dvb-card_detection.sh to true if any useable tv-cards were found
+    tv_scan="true"                      #false, true; always false if dvb-card_detection.sh fails in custom setup to find useable tv_cards
+  else
+    tv_dvb_type="None"                     #C, T, S. None (dvb-*)
+    tv_oscam="false"                     #false, true
+    tv_prefcg_oscam="false"              #false, true
+    tv_provider="None"                   #KBW(KabelBW), UM(unity-media), KD(kabel deutsc hland), HDPlus(hd+), SKY(Deutschland), None will add more in the future 
+    tv_cardreader="None"              #Smargo, Smartreader, None
+    tv_prompt_scan="false"              #false, true; is set in custom setup by dvb-card_detection.sh to true if any useable tv-cards were found
+    tv_scan="false"                      #false, true; always false if dvb-card_detection.sh fails in custom setup to find useable tv_cards 
+fi
 
 #pyload
 add_pyload="false"           #false, true; install pyload download manager
