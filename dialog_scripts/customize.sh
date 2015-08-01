@@ -43,9 +43,9 @@ function customize-additional {
 . $dialog/additional/pyload_select.sh		#additional stuff settings: install pyload download manager
 }
 
-function defaults {
- . $dialog/defaults.sh				#run the defaults-script again
-}
+#function defaults {
+# . $dialog/defaults.sh				#run the defaults-script again
+#}
 
 #print selection menu
 whiptail --backtitle "$headline" \
