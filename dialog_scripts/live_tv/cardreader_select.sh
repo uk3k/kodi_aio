@@ -8,6 +8,11 @@ if [ "$tv_vdr" = "true" ] && [ "$tv_oscam" = "true" ]
                         "Smargo"           ""	\
                         "Smartreader"      ""	3>&1 1>&2 2>&3`
         tv_cardreader=$input
+        
+        if [ "$tv_cardreader" = "Smargo" ]
+                then
+                        . $hw/card-reader_detection.sh
+        fi
 
         if [ "$tv_cr_busid" = "000:000" ]
                 then
