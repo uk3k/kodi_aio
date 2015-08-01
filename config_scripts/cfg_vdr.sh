@@ -1,16 +1,16 @@
 #!/bin/bash
 ###tweaks for vdr
 
+if [ "$tv_vdr" = "true" ]
+  then
 # vdr.groups
 cat > /var/lib/vdr/vdr.groups <<vdrgroups
 vdr
 video
 vdrgroups
 
-if [ "$tv_vdr" = "true" ]
-  then
-    #create vdr-parameter-script
-    cat > /usr/local/bin/runvdr <<runvdr
+#create vdr-parameter-script
+cat > /usr/local/bin/runvdr <<runvdr
 #!/bin/sh
 #vdr run options file
 #path to binary
@@ -78,3 +78,4 @@ fi
 
 #set permissions for samba
 chmod -R 775 /var/lib/vdr/* 
+fi
