@@ -3,6 +3,7 @@
 #V1.0.0.0.A
 
 echo "General Information" > /home/kodi/summary.txt
+echo "Bug Reports:        github@uk3k.de" >> /home/kodi/summary.txt
 echo "Script-Version:     $script_version" >> /home/kodi/summary.txt
 echo "Ubuntu Release:     $sys_os" >> /home/kodi/summary.txt
 echo "Setup mode:         $setup" >> /home/kodi/summary.txt
