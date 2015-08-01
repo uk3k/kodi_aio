@@ -25,6 +25,7 @@ unset valid
                 whiptail --backtitle "$headline" \
                 --title "Wrong input" \
                 --msgbox "\nThe passwords you've entered did not match! \n\nPlease try again" 15 100
-          unset valid
+              unset valid
+            fi
       fi
   done
