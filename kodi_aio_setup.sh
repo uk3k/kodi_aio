@@ -5,7 +5,7 @@
 script_version="1.0 Alpha"
 
 #working dir
-install="/tmp"
+install="/tmp/kodi_aio"
 
 #path to install scripts
 scripts="$install/install_scripts"
