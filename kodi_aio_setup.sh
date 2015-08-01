@@ -26,7 +26,6 @@ hw="$install/hw_detect"
 . $scripts/install_base-packages.sh
 . $scripts/install_live-tv.sh
 . $scripts/install_additional.sh
-. $scripts/install_cleanup.sh
 
 #run config scripts
 . $config/cfg_gfx.sh
@@ -38,3 +37,6 @@ hw="$install/hw_detect"
 . $config/cfg_oscam.sh
 . $config/cfg_pyload.sh
 . $config/cfg_alsa.sh
+
+#clean up
+. $scripts/install_cleanup.sh
