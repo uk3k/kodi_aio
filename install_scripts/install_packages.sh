@@ -15,14 +15,14 @@ echo "mysql-server mysql-server/root_password_again password $mysql_passwd" | de
 basepkg="lirc linux-firmware linux-firmware-nonfree udisks upower xorg alsa-utils mesa-utils librtmp0 libmad0 lm-sensors libmpeg2-4 avahi-daemon libnfs1 consolekit pm-utils samba "
 
 #select gfx packages
-if [ "$gfx" != "other" ]
+if [ "$sys_gfx" != "other" ]
 	then
 		gfxpkg="mesa-vdpau-drivers vdpauinfo "
-		if [ "$gfx" = "INTEL" ]
+		if [ "$sys_gfx" = "INTEL" ]
 			then
 				gfxpkg="libva-intel-vaapi-driver libva1 vainfo libva-glx1 gtk2-engines-pixbuf "
 		fi
-		if [ "$gfx" = "NVIDIA" ]
+		if [ "$sys_gfx" = "NVIDIA" ]
 			then
 				gfxpkg="nvidia-current "
 		fi
@@ -35,25 +35,25 @@ kodipkg="kodi kodi-bin kodi-pvr-vdr-vnsi "
 mysqlpkg="mysql-server "
 
 #select vdr packages
-if [ "$live_tv" = "true" ]
+if [ "tv_vdr" = "true" ]
   then
     vdrpkg="build-essential libjpeg62-dev libcap-dev libfontconfig1-dev gettext libncursesw5-dev libncurses5-dev "
     apt-get build-dep -y vdr
 fi
 
 #select oscam packages
-if [ "$oscam" = "true" ]
+if [ "$tv_oscam" = "true" ]
   then
     oscampkg="cmake subversion "
 fi
 
 #select pyload packages
-if [ "$pyload" = "true" ]
+if [ "$add_pyload" = "true" ]
   then
     pyloadpkg="python-crypto python-pycurl python-django openssl python-imaging python-beaker python-qt4 tesseract-ocr tesseract-ocr-eng gocr unrar rar "
 fi    
 
-if [ "$use_wifi" = "true" ]
+if [ "$nw_use_wifi" = "true" ]
   then
     wifipkg="wpasupplicant "
 fi
