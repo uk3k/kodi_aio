@@ -1,0 +1,46 @@
+# Network configuration
+d-i hw-detect/load_firmware boolean true
+d-i netcfg/choose_interface select auto
+d-i mirror/http/mirror select de.archive.ubuntu.com
+
+# Clock and time zone setup
+d-i clock-setup/ntp boolean true
+d-i time/zone string Europe/Berlin
+
+# don't use popcon
+popularity-contest popularity-contest/participate boolean false
+
+d-i debconf/priority select critical
+d-i auto-install/enabled boolean true
+
+# Account setup
+d-i passwd/user-fullname string kodi
+d-i passwd/username string kodi
+d-i passwd/user-password password toor
+d-i passwd/user-password-again password toor
+d-i user-setup/allow-password-weak boolean true
+d-i user-setup/encrypt-home boolean false
+
+# Apt setup
+d-i apt-setup/restricted boolean true
+d-i apt-setup/universe boolean true
+d-i apt-setup/multiverse boolean true
+d-i apt-setup/backports boolean true
+d-i apt-setup/non-free boolean true
+d-i apt-setup/contrib boolean true
+d-i apt-setup/security-updates boolean true
+d-i apt-setup/partner boolean true
+
+# Package selection
+tasksel tasksel/first multiselect ubuntu-standard
+d-i pkgsel/include string openssh-server
+d-i pkgsel/update-policy select none
+
+# This command is run just before the install finishes, but when there is
+# still a usable /target directory. You can chroot to /target and use it
+# directly, or use the apt-install and in-target commands to easily install
+# packages and run commands in the target system.
+d-i preseed/late_command string in-target wget -O /var/tmp/prepare_setup.sh https://github.com/uk3k/kodi_aio/blob/master/prepare_setup.sh; in-target chmod +x /var/tmp/prepare_setup.sh; in-target sed -i 's/exec \/sbin\/getty -8 38400 tty1/exec \/bin\/login -f root < \/dev\/tty1 > \/dev\/tty1 2>\&1/' /etc/init/tty1.conf; in-target chmod 755 /root/.bashrc; echo "/var/tmp/prepare_setup.sh" >> /target/root/.bashrc
+
+# Finishing up the installation
+d-i finish-install/reboot_in_progress note
