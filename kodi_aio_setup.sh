@@ -30,11 +30,11 @@ hw="$install/hw_detect"
 
 #run config scripts
 . $config/cfg_gfx.sh
-. $config/cfg_mysql.sh
 . $config/cfg_network.sh
+. $config/cfg_samba.sh
+. $config/cfg_mysql.sh
 . $config/cfg_kodi.sh
 . $config/cfg_vdr.sh
 . $config/cfg_oscam.sh
-. $config/
-. $config/
-. $config/
+. $config/cfg_pyload.sh
+. $config/cfg_alsa.sh
