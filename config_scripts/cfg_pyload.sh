@@ -1,7 +1,7 @@
 #!/bin/bash
 ###tweaks for pyload
 
-if [ "$pyload" = "true" ]
+if [ "$add_pyload" = "true" ]
   then
     clear
 		echo -e "running initial pyload setup... "
