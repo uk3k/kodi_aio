@@ -1,4 +1,7 @@
 #!/bin/bash
+###live-tv installation routines
+
+#vdr
 if [ "$tv_vdr" = "true" ]
   then
   useradd vdr
@@ -22,4 +25,17 @@ if [ "$tv_vdr" = "true" ]
   ln -s svdrpservice-1.0.0 svdrpservice
   cd ../../
   make -j2 && make install
+fi
+
+#oscam
+if [ "$tv_oscam" = "true" ]
+	then
+		cd $install/src
+		rm -R oscam*
+		svn co http://streamboard.de.vu/svn/oscam/trunk oscam-svn
+		cd oscam-svn*
+		mkdir build
+		cd build
+		cmake .. -DHAVE_LIBUSB=1 -DWEBIF=1 -DHAVE_DVBAPI=1 -DCARDREADER_SMARGO=1 -DUSE_LIBUSB=1
+		make -j3 && make install
 fi
