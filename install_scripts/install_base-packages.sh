@@ -7,8 +7,8 @@ apt-add-repository ppa:team-xbmc/ppa -y
 apt-get update && apt-get upgrade -y && apt-get dist-upgrade -y
 
 #debconf preselection
-echo "mysql-server mysql-server/root_password password $mysql_passwd" | debconf-set-selections
-echo "mysql-server mysql-server/root_password_again password $mysql_passwd" | debconf-set-selections
+echo "mysql-server mysql-server/root_password password $sql_rootpw" | debconf-set-selections
+echo "mysql-server mysql-server/root_password_again password $sql_rootpw" | debconf-set-selections
 
 #define packages to install and preselect
 #base packages
