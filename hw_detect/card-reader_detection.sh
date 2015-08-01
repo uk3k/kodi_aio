@@ -3,7 +3,7 @@
 #works actually only for smargo
 #V1.0.0.0.A
 
-if [ $tv_cardreader = "smargo" ] 
+if [ $tv_cardreader = "Smargo" ] 
   then
     tv_cr_busid=$(lsusb | grep "Future Technology" | awk -v OFS=':' '{print $2,$4}' | sed s/://2) 
   else
