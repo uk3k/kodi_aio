@@ -27,3 +27,14 @@ hw="$install/hw_detect"
 . $scripts/install_live-tv.sh
 . $scripts/install_additional.sh
 . $scripts/install_cleanup.sh
+
+#run config scripts
+. $config/cfg_gfx.sh
+. $config/cfg_mysql.sh
+. $config/cfg_network.sh
+. $config/cfg_kodi.sh
+. $config/cfg_vdr.sh
+. $config/cfg_oscam.sh
+. $config/
+. $config/
+. $config/
