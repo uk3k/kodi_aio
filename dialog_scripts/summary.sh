@@ -46,4 +46,3 @@ echo "Install Pyload Download-Manager:  $add_pyload" >> /home/kodi/summary.txt
 echo "-----------------------------" >> /home/kodi/summary.txt
 
 clear
-cat /home/kodi/summary.txt
