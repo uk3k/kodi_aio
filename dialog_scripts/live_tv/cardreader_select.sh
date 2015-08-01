@@ -20,18 +20,24 @@ if [ "$tv_vdr" = "true" ] && [ "$tv_oscam" = "true" ]
                                         inputok="true"
                         fi
                         while [ "$inputok" = "false" ]; do
-                                read -ra array <<<$(lsusb)
-                                input=`whiptail --backtitle "$headline" \
-                                --notags \
-                                --title "Available USB-Devices" \
-                                --menu "\nSelect your Card-Reader \n " 16 100 4 "${array[@]}" 3>&1 1>&2 2>&3`
-                                tv_cr_busid=$input
+                                IFS=$'\n'
+                                array=( $(lsusb |awk '!/^ / && NF {print $1,$2,$3,$4,$6,$7,$8,$9,$10}') )
+                                unset IFS
+                                        RADIOLIST=()
+                                        for ((i=0; i<${#array[@]}; i++))
+                                                do
+                                                        RADIOLIST+=("$i" "${array[$i]}" "OFF")
+                                                done
+                                        let ARLENGTH=${#array[@]}
+                                        input=`whiptail --backtitle "$headline" \
+                                                        --title "Select your Card-Reader" \
+                                                        --radiolist "Available USB-devices:" 25 100 \
+                                                        $ARLENGTH "${RADIOLIST[@]}" 3>&1 1>&2 2>&3`
+                                        tv_cr_busid=$(echo ${array[$input]} | awk -v OFS=':' '{print $2,$4}' | sed s/://2)
                                 if [ -z "$input" ]
                                         then
-                                                whiptail --backtitle "$headline" \
-                                                --title "Wrong input" \
-                                                --msgbox "\nNothing selected :-(. \n\nPlease try again" 15 100
-                                                inputok="false"
+                                                tv_cr_busid="000:000"
+                                                inputok="true"
                                         else
                                                 inputok="true"
                                 fi
