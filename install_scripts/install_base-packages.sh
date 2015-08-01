@@ -35,7 +35,7 @@ kodipkg="kodi kodi-bin kodi-pvr-vdr-vnsi "
 mysqlpkg="mysql-server "
 
 #select vdr packages
-if [ "tv_vdr" = "true" ]
+if [ "$tv_vdr" = "true" ]
   then
     vdrpkg="build-essential libjpeg62-dev libcap-dev libfontconfig1-dev gettext libncursesw5-dev libncurses5-dev pkg-config "
     apt-get build-dep -y vdr
