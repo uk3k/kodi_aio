@@ -30,17 +30,17 @@ cat > /home/kodi/.kodi/userdata/advancedsettings.xml <<advset
 </video>
 <videodatabase>
 	<type>mysql</type>
-	<host>$mysql_host</host>
+	<host>$sql_ip</host>
 	<port>3306</port>
 	<user>kodi</user>
-	<pass>kodi</pass>
+	<pass>$sql_userpw</pass>
 </videodatabase>
 <musicdatabase>
 	<type>mysql</type>
-	<host>$mysql_host</host>
+	<host>$sql_ip</host>
 	<port>3306</port>
 	<user>kodi</user>
-	<pass>kodi</pass>
+	<pass>$sql_userpw</pass>
 </musicdatabase>
 <videolibrary>
 	<importwatchedstate>true</importwatchedstate>
