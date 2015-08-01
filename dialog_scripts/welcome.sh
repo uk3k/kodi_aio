@@ -4,7 +4,7 @@
 #print welcome message
 whiptail --backtitle "$headline" \
         --title "Disclaimer" \
-        --msgbox "\nWelcome to the uk3k.de Kodi All in One installer script. \n\nPress Enter to continue" 12 100
+        --msgbox "\nWelcome to the uk3k.de Kodi All in One installer script. \nPlease report bugs to github@uk3k.de \n\nPress Enter to continue" 12 100
 
 
 #execute defaults script to get missing variables
