@@ -6,7 +6,7 @@ if [ "$nw_iface" != "^eth.*" ] && [ "$nw_wifi_present" = "true" ]
 	then
 	#ask for wifi configuration
 	if (whiptail --backtitle "$headline" --title "Configure Wifi" \
-		--yesno "\nWifi was selected as primary network interface but is not configured yet. \nDo you want to do this now? \n " 15 100) 
+		--yesno "\nWifi was selected as primary network interface but is not configured yet. \nDo you want to do this now? $nw_iface" \n " 15 100) 
 		then
 		        #SSID for wifi-configuration
 		        unset valid
