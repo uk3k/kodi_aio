@@ -169,3 +169,4 @@ update-rc.d oscam defaults
 
 #cfg permissions for samba
 chmod -R 775 /usr/local/etc/*
+fi
