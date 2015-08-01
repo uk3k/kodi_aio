@@ -14,6 +14,9 @@ fi
 #get assigned ip-address
 nw_ip=$(ip addr show | grep inet | grep $nw_iface | awk '{ print $2 }' | awk '{gsub("/24", "");print}')
 
+#define local net
+nw_loc_net=$(echo "$nw_ip" | awk -F '.' '{gsub($4, "0/24");print}')
+
 #get netmask
 nw_netmask=$(ifconfig $nw_iface | grep inet | grep 192 | sed s/^.*Mask.*://)
 
