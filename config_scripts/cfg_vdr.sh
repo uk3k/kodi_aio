@@ -7,7 +7,7 @@ vdr
 video
 vdrgroups
 
-if [ "$live_tv" = "true" ]
+if [ "$tv_vdr" = "true" ]
   then
     #create vdr-parameter-script
     cat > /usr/local/bin/runvdr <<runvdr
@@ -58,19 +58,19 @@ runvdr
 chmod +x /usr/local/bin/runvdr
 
 #create access rules for vdr
-echo "$localnet	#any host on the local net" > /var/lib/vdr/allowed_hosts.conf
-echo "$localnet	#any host on the local net" > /var/lib/vdr/svdrphosts.conf
-echo "$localnet	#any host on the local net" > /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf
-echo "$localnet	#any host on the local net" > /var/lib/vdr/plugins/streamdev-server/streamdevhosts.conf
+echo "$nw_loc_net	#any host on the local net" > /var/lib/vdr/allowed_hosts.conf
+echo "$nw_loc_net	#any host on the local net" > /var/lib/vdr/svdrphosts.conf
+echo "$nw_loc_net	#any host on the local net" > /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf
+echo "$nw_loc_net	#any host on the local net" > /var/lib/vdr/plugins/streamdev-server/streamdevhosts.conf
 ln -s /var/lib/vdr/allowed_hosts.conf /etc/vdr/allowed_hosts.conf
 ln -s /var/lib/vdr/svdrphosts.conf /etc/vdr/svdrphosts.conf
 ln -s /var/lib/vdr/plugins/vnsiserver/allowed_hosts.conf /etc/vdr/plugins/vnsiserver/allowed_hosts.conf 
 ln -s /var/lib/vdr/plugins/streamdev-server/streamdevhosts.conf /etc/vdr/plugins/streamdev-server/streamdevhosts.conf 
 
 #scan for tv channels
-if [ "$tv_scan_channels" = "true" ]
+if [ "$tv_scan" = "true" ]
 	then
-		if [ "$tv_dvb_type_" = "c" ] || [ "$tv_dvb_type" = "s" ] || [ "$tv_dvb_type" = "t" ]
+		if [ "$tv_dvb_type" = "C" ] || [ "$tv_dvb_type" = "S" ] || [ "$tv_dvb_type" = "T" ]
 			then
 				w_scan -R0 -T1 -f $tv_dvb_type > /var/lib/vdr/channels.conf
 		fi
