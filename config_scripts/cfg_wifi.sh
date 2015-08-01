@@ -1,7 +1,7 @@
 #!/bin/bash
 ###tweaks for wifi
 
-if [ "$use_wifi" = "true" ]
+if [ "$nw_use_wifi" = "true" ]
 	then
 
 #create wpasupplicant.conf
@@ -15,7 +15,7 @@ ap_scan=1
 #ap specific config
 wpasupplicantconf
 
-echo "wpa_passphrase $ssid $key" >> /etc/wpa_supplicant/wpa_supplicant.conf
+echo "wpa_passphrase $nw_wifi_ssid $nw_wifi_psk" >> /etc/wpa_supplicant/wpa_supplicant.conf
 
 # append wifi settings to /etc/network/interfaces
 cat >> /etc/network/interfaces <<interfaces
