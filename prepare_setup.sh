@@ -13,6 +13,23 @@ if [ "$(lsb_release -c | awk '{ print $2 }')" != "trusty" ]
 		exit 2
 fi
 
+#check if user kodi is allready present and add it if neccessary
+if [ "$(cat /etc/passwd | grep kodi)" ]
+        then
+                if [ "$(ls /home | grep kodi)" ]
+                        then
+                                usermod -d /home/kodi kodi
+                                chown kodi:kodi /home/kodi
+                        else
+                                mkdir -p /home/kodi
+                                usermod -d /home/kodi kodi
+                                chown kodi:kodi /home/kodi
+                fi
+        else
+                useradd -U -m -s /bin/bash -p toor kodi
+fi
+
+
 #exit if github is not reachable
 if ping -c 3 github.com > /dev/null
 	then
