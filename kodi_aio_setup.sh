@@ -23,8 +23,7 @@ hw="$install/hw_detect"
 . $dialog/welcome.sh
 
 #run install scripts
-. $scripts/install_packages.sh
-. $scripts/install_vdr.sh
-. $scripts/install_oscam.sh
-. $scripts/install_pyload.sh
+. $scripts/install_base-packages.sh
+. $scripts/install_live-tv.sh
+. $scripts/install_additional.sh
 . $scripts/install_cleanup.sh
