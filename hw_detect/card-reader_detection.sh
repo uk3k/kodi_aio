@@ -11,10 +11,12 @@ if [ "$tv_cardreader" = "Smargo" ]
       else
         tv_cr_busid="000:000"
         tv_prefcg_oscam="false"
+        tv_provider="None"
         tv_cardreader="None" 
     fi
   else
     tv_cr_busid="000:000"
     tv_prefcg_oscam="false"
+    tv_provider="None"
     tv_cardreader="None"
 fi
