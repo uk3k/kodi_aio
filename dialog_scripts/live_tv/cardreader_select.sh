@@ -4,7 +4,7 @@ if [ "$tv_vdr" = "true" ] && [ "$tv_oscam" = "true" ]
         then
         input=`whiptail --backtitle "$headline" \
                 --title "Smart-Card-Reader" \
-                --menu "\nSelect your Card-Reader for OSCAM \n\n " 30 100 2 \
+                --menu "\nSelect your Card-Reader for OSCAM "$tv_cr_busid" \n\n " 30 100 2 \
                         "Smargo"           ""	\
                         "Smartreader"      ""	3>&1 1>&2 2>&3`
         tv_cardreader=$input
