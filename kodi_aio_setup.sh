@@ -19,4 +19,12 @@ dialog="$install/dialog_scripts"
 #path to hardware detection scripts
 hw="$install/hw_detect"
 
+#start user dialog
 . $dialog/welcome.sh
+
+#run install scripts
+. $scripts/install_packages.sh
+. $scripts/install_vdr.sh
+. $scripts/install_oscam.sh
+. $scripts/install_pyload.sh
+. $scripts/install_cleanup.sh
