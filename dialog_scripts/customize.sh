@@ -9,13 +9,6 @@ function customize-system {
  . $dialog/system/automount.sh        		#system settings: check for media files
 }
 
-#mysql
-function customize-mysql {
- . $dialog/mysql/server_ip.sh			#mysql settings: mysql-server ip address	
- . $dialog/mysql/root_password.sh        	#mysql settings: root password for mysql
- . $dialog/mysql/user_password.sh		#mysql settings: user password for kodi-database
-}
-
 #networking
 function customize-networking {
 . $dialog/networking/iface_select.sh        	#network settings: primary networking interface
@@ -26,6 +19,13 @@ function customize-networking {
 . $dialog/networking/dns1_settings.sh       	#network settings: Nameserver #1
 . $dialog/networking/dns2_settings.sh       	#network settings: Nameserver #2
 . $dialog/networking/wifi_settings.sh       	#network settings: wifi
+}
+
+#mysql
+function customize-mysql {
+ . $dialog/mysql/server_ip.sh			#mysql settings: mysql-server ip address	
+ . $dialog/mysql/root_password.sh        	#mysql settings: root password for mysql
+ . $dialog/mysql/user_password.sh		#mysql settings: user password for kodi-database
 }
 
 #live-tv
