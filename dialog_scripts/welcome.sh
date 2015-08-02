@@ -27,7 +27,8 @@ if [ "$sys_type" = "Host" ]
 		Network Interface:              $nw_iface
 		IP-Address Settings:            $nw_mode
 		IP-Address:                     $nw_ip
-		Live-TV Support:                $tv_vdr
+		TV-Card present:		$tv_card_present
+		Install Live-TV Support:        $tv_vdr
 		DVB-* Type:                     $tv_dvb_type
 		Install PayTV-Support:          $tv_oscam
 		Smart-Card-Reader:              $tv_cardreader
