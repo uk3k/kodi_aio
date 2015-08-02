@@ -2,7 +2,7 @@
 #Gateway for TCP/IP configuration
 #V1.0.0.0.A
 
-if [ "$nw_mode" != "DHCP"]
+if [ "$nw_mode" != "DHCP" ]
 then
 unset valid
 while [ -z "$nw_gateway" ] || [ -z "$valid_range" ] || [ -z "$valid" ] || [ "$valid_syntax" != "true" ];do
