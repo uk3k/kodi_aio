@@ -1,9 +1,9 @@
 #!/bin/bash
 #picostick for testing
-wget http://www.kernellabs.com/firmware/as102/as102_data1_st.hex
-wget http://www.kernellabs.com/firmware/as102/as102_data2_st.hex
-cp as102_data* /lib/firmware
-rm as102_data*
+#wget http://www.kernellabs.com/firmware/as102/as102_data1_st.hex
+#wget http://www.kernellabs.com/firmware/as102/as102_data2_st.hex
+#cp as102_data* /lib/firmware
+#rm as102_data*
 
 #check if system ready for setup
 clear
