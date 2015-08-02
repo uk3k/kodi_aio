@@ -24,4 +24,4 @@ if [ "$tv_card_present" = "true" ]
                                                 tv_vdr="false"
                                                 tv_prompt_scan="false"
                         fi
-
+fi
