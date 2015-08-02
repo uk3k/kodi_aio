@@ -30,4 +30,6 @@ if [ "$sys_type" = "Host" ]
                 fi
               fi
           done
+        else
+         unset sql_rootpw
 fi
