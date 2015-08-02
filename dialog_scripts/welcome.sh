@@ -64,6 +64,8 @@ if [ "$sys_type" = "Host" ]
 				then
 					. $dialog/customize_client.sh
 				else
+					. $dialog/mysql/server_ip.sh
+					. $dialog/mysql/user_password.sh
 					. $dialog/summary_client.sh
 			fi
 fi
