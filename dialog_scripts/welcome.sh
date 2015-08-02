@@ -9,7 +9,7 @@ whiptail --backtitle "$headline" \
 #run install-type selection script
 . $dialog/system/install_select.sh
 
-if [ "$sys_type" = "Host"]
+if [ "$sys_type" = "Host" ]
 	then
 	#execute defaults script to get missing variables
 		. $dialog/defaults.sh > /dev/null
