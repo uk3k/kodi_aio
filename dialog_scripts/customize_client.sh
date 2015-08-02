@@ -29,6 +29,7 @@ function customize-mysql {
 
 ##additional stuff
 function customize-additional {
+ . $dialog/additional/additional.sh		#additional stuff
 }
 
 #print selection menu
