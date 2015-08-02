@@ -6,8 +6,13 @@ whiptail --backtitle "$headline" \
         --title "Disclaimer" \
         --msgbox "\nWelcome to the uk3k.de Kodi All in One installer script. \nPlease report bugs to github@uk3k.de \n\nPress Enter to continue" 12 100
 
-#run install-type selection script
-. $dialog/system/install_select.sh
+#print setup mode selection
+input=`whiptail --backtitle "$headline" \
+        --title "System Type selection" \
+        --menu "\nDo you want to use your System as Host or as Client? \n\n " 20 100 2 \
+                "Host"        ""	\
+                "Client"      ""	3>&1 1>&2 2>&3`
+sys_type=$input
 
 if [ "$sys_type" = "Host" ]
 	then
