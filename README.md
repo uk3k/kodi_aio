@@ -5,8 +5,6 @@ ToDo:
 
 *allready checked: kodi, sql, vdr
 
-*disable scan for tv-channels by default
-
 *Wait for MySQL on startup --> need proper solution
 
 *Register upstart scripts for vdr and oscam by script during setup
