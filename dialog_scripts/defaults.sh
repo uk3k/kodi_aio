@@ -34,6 +34,7 @@ nw_dns1="$nw_dns1"                  #detected nameserver #1
 nw_dns2="$nw_dns2"                  #detected nameserver #2
 
 #mysql
+sql_install="true"          #true, false; install the Mysql-Server
 sql_ip="$nw_ip"             #ip address of the lokal mysql-server
 sql_rootpw="Secure0n3"      #not really secure root password for the mysql server
 sql_userpw="kodi"           #pretty unsecure password for the sql-user
