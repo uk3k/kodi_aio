@@ -32,7 +32,7 @@ echo "Mysql User Password:  $sql_userpw" >> /home/kodi/summary.txt
 echo "-----------------------------" >> /home/kodi/summary.txt
 
 echo "Live-TV Selections" >> /home/kodi/summary.txt
-echo "TV-Card detected:                                   $tv_tvcard_present" >> /home/kodi/summary.txt
+echo "TV-Card detected:                                   $tv_card_present" >> /home/kodi/summary.txt
 echo "Install Live-TV support:                            $tv_vdr" >> /home/kodi/summary.txt
 echo "DVB-Type:                                           $tv_dvb_type" >> /home/kodi/summary.txt
 echo "Install local PayTV descrambling support (OSCAM):   $tv_oscam" >> /home/kodi/summary.txt
