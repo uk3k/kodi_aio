@@ -35,7 +35,7 @@ function customize-mysql {
 #print selection menu
 whiptail --backtitle "$headline" \
         --title "Select Settings to customize" \
-        --checklist --separate-output "\nSelect the settings you want to customize \n\n " 30 100 5 \
+        --checklist --separate-output "\nSelect the settings you want to customize \n\n " 30 100 2 \
                 "System"		""	on     \
                 "Networking"            ""	on     2>selections
 while read input
