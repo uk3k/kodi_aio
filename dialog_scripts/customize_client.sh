@@ -27,18 +27,17 @@ function customize-mysql {
  . $dialog/mysql/user_password.sh		#mysql settings: user password for kodi-database
 }
 
-#additional stuff
-function customize-additional {
+##additional stuff
+#function customize-additional {
 #nothing here yet		#additional stuff settings
-}
+#}
 
 #print selection menu
 whiptail --backtitle "$headline" \
         --title "Select Settings to customize" \
         --checklist --separate-output "\nSelect the settings you want to customize \n\n " 30 100 5 \
                 "System"		""	on     \
-                "Networking"            ""	on      \
-                "Other" 		""	on      2>selections
+                "Networking"            ""	on     2>selections
 while read input
 do
 	case $input in
