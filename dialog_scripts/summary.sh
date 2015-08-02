@@ -33,7 +33,7 @@ echo "-----------------------------" >> /home/kodi/summary.txt
 
 echo "Live-TV Selections" >> /home/kodi/summary.txt
 echo "Install Live-TV support:                            $tv_vdr" >> /home/kodi/summary.txt
-echo "DVB-Type:                                           dvb-$tv_dvb_type" >> /home/kodi/summary.txt
+echo "DVB-Type:                                           DVB-$tv_dvb_type" >> /home/kodi/summary.txt
 echo "Install local PayTV descrambling support (OSCAM):   $tv_oscam" >> /home/kodi/summary.txt
 echo "Preconfigure OSCAM for your PayTV-Provider:         $tv_precfg_oscam" >> /home/kodi/summary.txt
 echo "Selected PayTV-Provider:                            $tv_provider" >> /home/kodi/summary.txt
