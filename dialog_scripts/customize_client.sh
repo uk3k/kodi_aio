@@ -28,14 +28,13 @@ function customize-mysql {
 }
 
 ##additional stuff
-#function customize-additional {
-#nothing here yet		#additional stuff settings
-#}
+function customize-additional {
+}
 
 #print selection menu
 whiptail --backtitle "$headline" \
         --title "Select Settings to customize" \
-        --checklist --separate-output "\nSelect the settings you want to customize \n\n " 30 100 2 \
+        --checklist --separate-output "\nSelect the settings you want to customize \n\n " 30 100 4 \
                 "System"		""	on     \
                 "Networking"            ""	on     2>selections
 while read input
