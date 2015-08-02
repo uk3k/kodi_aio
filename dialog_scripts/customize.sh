@@ -52,8 +52,8 @@ whiptail --backtitle "$headline" \
         --title "Select Settings to customize" \
         --checklist --separate-output "\nSelect the settings you want to customize \n\n " 30 100 5 \
                 "System"		""	on     \
-                "MySQL"			""	on     \
                 "Networking"            ""	on      \
+                "MySQL"			""	on     \
                 "Live-TV"               ""	on      \
                 "Other" 		""	on      2>selections
 while read input
