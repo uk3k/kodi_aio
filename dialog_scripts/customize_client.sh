@@ -36,8 +36,10 @@ function customize-additional {
 whiptail --backtitle "$headline" \
         --title "Select Settings to customize" \
         --checklist --separate-output "\nSelect the settings you want to customize \n\n " 30 100 4 \
-                "System"		""	on     \
-                "Networking"            ""	on     2>selections
+                "System"		""	on	\
+                "Networking"            ""	on	\
+                "MySQL"			""	on	\
+                "Other"			""	on	2>selections
 while read input
 do
 	case $input in
