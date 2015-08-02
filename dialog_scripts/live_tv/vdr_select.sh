@@ -2,11 +2,11 @@
 #enable live-tv support
 
 if (whiptail --backtitle "$headline" \
-            --title "Install Pyload" \
-            --yesno "\nDo you want to install the Pyload Download Manager? \n\n " 15 100)
+            --title "Install VDR" \
+            --yesno "\nDo you want to install Live-TV support? \n\n " 15 100)
       then
-        add_pyload="true"
+        tv_vdr="true"
       else
-        add_pyload="false"
+        tv_vdr="false"
 fi
 
