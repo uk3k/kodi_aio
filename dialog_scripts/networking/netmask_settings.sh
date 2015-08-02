@@ -2,6 +2,8 @@
 #Netmask for TCP/IP configuration
 #V1.0.0.0.A
 
+if [ "$nw_mode" != "DHCP"]
+then
 unset valid
 while [ -z "$nw_netmask" ] || [ -z "$valid_range" ] || [ -z "$valid" ] || [ "$valid_syntax" != "true" ];do
         input=`whiptail --backtitle "$headline" \
@@ -34,3 +36,4 @@ while [ -z "$nw_netmask" ] || [ -z "$valid_range" ] || [ -z "$valid" ] || [ "$va
                 unset nw_netmask
         fi
 done
+fi
