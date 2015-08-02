@@ -42,7 +42,7 @@ echo "Install local PayTV descrambling support (OSCAM): .. $tv_oscam" >> /home/k
 echo "Preconfigure OSCAM for your PayTV-Provider: ........ $tv_precfg_oscam" >> /home/kodi/summary.txt
 echo "Selected PayTV-Provider: ........................... $tv_provider" >> /home/kodi/summary.txt
 echo "Selected Smart-Card-Reader vendor: ................. $tv_cardreader" >> /home/kodi/summary.txt
-echo "Bus:ID of your Smart-Card-Reader: .................. $tv_cr_busid (000:000=dummy)" >> /home/kodi/summary.txt
+echo "Bus:ID of your Smart-Card-Reader: .................. $tv_cr_busid" >> /home/kodi/summary.txt
 echo "Scan for available TV-Channels: .................... $tv_scan" >> /home/kodi/summary.txt
 echo "-----------------------------" >> /home/kodi/summary.txt
 echo "" >> /home/kodi/summary.txt
