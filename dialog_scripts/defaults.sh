@@ -49,7 +49,7 @@ if [ "$tv_vdr" = "true" ]
     tv_cardreader="Smargo"              #Smargo, Smartreader, None
     . $hw/card-reader_detection.sh      #run card-reader_detection.sh to find card-reader
     tv_prompt_scan="false"              #false, true; is set in custom setup by dvb-card_detection.sh to true if any useable tv-cards were found
-    tv_scan="true"                      #false, true; always false if dvb-card_detection.sh fails in custom setup to find useable tv_cards
+    tv_scan="false"                      #false, true; always false if dvb-card_detection.sh fails in custom setup to find useable tv_cards
   else
     tv_dvb_type="None"                     #C, T, S. None (dvb-*)
     tv_oscam="false"                     #false, true
