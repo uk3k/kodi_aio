@@ -28,7 +28,7 @@ if [ "$sys_type" = "Host" ]
 		IP-Address Settings:            $nw_mode
 		IP-Address:                     $nw_ip
 		Live-TV Support:                $tv_vdr
-		DVB-* Type:                     dvb-$tv_dvb_type
+		DVB-* Type:                     $tv_dvb_type
 		Install PayTV-Support:          $tv_oscam
 		Smart-Card-Reader:              $tv_cardreader
 		Pyload Download Manager:        $add_pyload \n\n " 30 100 2 \
