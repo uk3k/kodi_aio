@@ -11,7 +11,7 @@ if [ "$tv_vdr" = "true" ]
                 "DVB-C"       ""  3>&1 1>&2 2>&3`
     case $input in
       DVB-T)  tv_dvb_type="T";;
-      DVB-S)  tv_dvb_type="T";;
+      DVB-S)  tv_dvb_type="S";;
       DVB-C)  tv_dvb_type="C";;
     esac
   else
