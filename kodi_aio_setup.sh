@@ -22,9 +22,6 @@ hw="$install/hw_detect"
 #start user dialog
 . $dialog/welcome.sh
 
-###debug
-exit 0
-
 #run install scripts
 . $scripts/install_base-packages.sh
 . $scripts/install_live-tv.sh
