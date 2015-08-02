@@ -8,11 +8,3 @@ input=`whiptail --backtitle "$headline" \
                 "Host"        ""	\
                 "Client"      ""	3>&1 1>&2 2>&3`
 sys_type=$input
-
-#call scripts for host or client
-if [ "$sys_type" = "Host" ] 
-	then
-
-	else
-
-fi
