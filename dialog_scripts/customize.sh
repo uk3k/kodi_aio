@@ -60,8 +60,8 @@ while read input
 do
 	case $input in
 		System) 	customize-system	;;
-		MySQL) 		customize-mysql		;;
 		Networking) 	customize-networking	;;        
+                MySQL) 		customize-mysql		;;
                 Live-TV) 	customize-livetv	;;
                 Other) 		customize-additional	;;
 		*)					;;
