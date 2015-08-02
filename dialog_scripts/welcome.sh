@@ -22,7 +22,7 @@ if [ "$sys_type" = "Host" ]
 	#print setup mode selection
 		input=`whiptail --backtitle "$headline" \
         		--title "Setup mode - Host install" \
-        		--menu "\nDo you want use the default setup settings or customize them? \n\nMost important default settings are: $sys_type \n
+        		--menu "\nDo you want use the default setup settings or customize them? \n\nMost important default settings are: \n
         	Graphics Vendor:                $sys_gfx
 		Network Interface:              $nw_iface
 		IP-Address Settings:            $nw_mode
@@ -51,7 +51,7 @@ if [ "$sys_type" = "Host" ]
 	#print setup mode selection
 		input=`whiptail --backtitle "$headline" \
         		--title "Setup mode - Client install" \
-        		--menu "\nDo you want use the default setup settings or customize them? \n\nMost important default settings are: $sys_type \n
+        		--menu "\nDo you want use the default setup settings or customize them? \n\nMost important default settings are: \n
         	Graphics Vendor:                $sys_gfx
 		Network Interface:              $nw_iface
 		IP-Address Settings:            $nw_mode
