@@ -42,8 +42,9 @@ while read input
 do
 	case $input in
 		System) 	customize-system	;;
-		Networking) 	customize-networking	;;        
-    Other) 		customize-additional	;;
+		Networking) 	customize-networking	;;
+		MySQL)		customize-mysql		;;
+    		Other) 		customize-additional	;;
 		*)					;;
 	esac
 done < selections
