@@ -31,20 +31,23 @@ fi
 #select kodi packages
 kodipkg="kodi kodi-bin kodi-pvr-vdr-vnsi "
 
-#select mysql packages
-mysqlpkg="mysql-server "
+if [ "$sys_type" = "Host" ]
+then
+	#select mysql packages
+	mysqlpkg="mysql-server "
 
-#select vdr packages
-if [ "$tv_vdr" = "true" ]
-  then
-    vdrpkg="build-essential libjpeg62-dev libcap-dev libfontconfig1-dev gettext libncursesw5-dev libncurses5-dev pkg-config w-scan"
-    apt-get build-dep -y vdr
-fi
+	#select vdr packages
+	if [ "$tv_vdr" = "true" ]
+  		then
+    		vdrpkg="build-essential libjpeg62-dev libcap-dev libfontconfig1-dev gettext libncursesw5-dev libncurses5-dev pkg-config w-scan"
+    		apt-get build-dep -y vdr
+	fi
 
-#select oscam packages
-if [ "$tv_oscam" = "true" ]
-  then
-    oscampkg="cmake subversion openssl libssl-dev libusb-dev libusb-1.0 "
+	#select oscam packages
+	if [ "$tv_oscam" = "true" ]
+  		then
+    		oscampkg="cmake subversion openssl libssl-dev libusb-dev libusb-1.0 "
+		fi
 fi
 
 #select pyload packages
