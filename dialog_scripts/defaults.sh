@@ -9,7 +9,6 @@ headline="uk3k.de V$script_version Kodi All in One installer script"
 setup="Default"             #Default, Customize
 
 #system
-sys_type="Host"             #Host, Client
 . $hw/gfx_detection.sh      #run gfx_detection.sh to determine the actual graphics vendor of the system
 sys_fgx="$sys_fgx"          #amd, nvidia, intel, other
 . $hw/os_detection.sh       #run os_detection.sh to determine the actual operating system
