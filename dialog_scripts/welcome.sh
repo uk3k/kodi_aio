@@ -7,7 +7,7 @@ whiptail --backtitle "$headline" \
         --msgbox "\nWelcome to the uk3k.de Kodi All in One installer script. \nPlease report bugs to github@uk3k.de \n\nPress Enter to continue" 12 100
 
 #run install-type selection script
-. $scripts/install_select.sh
+. $dialog/system/install_select.sh
 
 if [ "$sys_type" = "Host"]
 	then
