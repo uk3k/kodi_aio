@@ -2,6 +2,8 @@
 #DNS1 for TCP/IP configuration
 #V1.0.0.0.A
 
+if [ "$nw_mode" != "DHCP" ]
+then
 unset valid
 while [ -z "$nw_dns1" ] || [ -z "$valid_range" ] || [ -z "$valid" ] || [ "$valid_syntax" != "true" ];do
         input=`whiptail --backtitle "$headline" \
@@ -33,3 +35,4 @@ while [ -z "$nw_dns1" ] || [ -z "$valid_range" ] || [ -z "$valid" ] || [ "$valid
                 unset nw_dns1
         fi
 done
+fi
