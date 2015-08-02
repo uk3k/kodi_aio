@@ -6,14 +6,18 @@ whiptail --backtitle "$headline" \
         --title "Disclaimer" \
         --msgbox "\nWelcome to the uk3k.de Kodi All in One installer script. \nPlease report bugs to github@uk3k.de \n\nPress Enter to continue" 12 100
 
+#run install-type selection script
+. $dialog/system/install_select.sh
 
-#execute defaults script to get missing variables
-. $dialog/defaults.sh > /dev/null
+if [ "$sys_type" = "Host"]
+	then
+	#execute defaults script to get missing variables
+		. $dialog/defaults.sh > /dev/null
 
-#print setup mode selection
-input=`whiptail --backtitle "$headline" \
-        --title "Setup mode" \
-        --menu "\nDo you want use the default setup settings or customize them? \n\nMost important default settings are: \n
+	#print setup mode selection
+		input=`whiptail --backtitle "$headline" \
+        		--title "Setup mode - Host install" \
+        		--menu "\nDo you want use the default setup settings or customize them? \n\nMost important default settings are: \n
         	Graphics Vendor:                $sys_gfx
 		Network Interface:              $nw_iface
 		IP-Address Settings:            $nw_mode
@@ -25,12 +29,38 @@ input=`whiptail --backtitle "$headline" \
 		Pyload Download Manager:        $add_pyload \n\n " 30 100 2 \
                 "Default"        ""	\
                 "Customize"      ""	3>&1 1>&2 2>&3`
-setup=$input
-
-#execute default or cutom setup routine
-if [ "$setup" = "Customize" ] 
-	then
-		. $dialog/customize.sh
+		setup=$input
+		
+		#execute default or cutom setup routine
+			if [ "$setup" = "Customize" ] 
+				then
+					. $dialog/customize.sh
+				else
+					. $dialog/summary.sh
+			fi
 	else
-		. $dialog/summary.sh
+		#execute defaults script to get missing variables
+		. $dialog/defaults_client.sh > /dev/null
+
+	#print setup mode selection
+		input=`whiptail --backtitle "$headline" \
+        		--title "Setup mode - Client install" \
+        		--menu "\nDo you want use the default setup settings or customize them? \n\nMost important default settings are: \n
+        	Graphics Vendor:                $sys_gfx
+		Network Interface:              $nw_iface
+		IP-Address Settings:            $nw_mode
+		IP-Address:                     $nw_ip \n\n " 20 100 2 \
+                "Default"        ""	\
+                "Customize"      ""	3>&1 1>&2 2>&3`
+		setup=$input
+		
+		#execute default or cutom setup routine
+			if [ "$setup" = "Customize" ] 
+				then
+					. $dialog/customize_client.sh
+				else
+					. $dialog/summary_client.sh
+			fi
 fi
+
+
