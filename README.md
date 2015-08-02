@@ -9,8 +9,6 @@ ToDo:
 
 *Register upstart scripts for vdr and oscam by script during setup
 
-*test custom install mode
-
 *supress error messages during preparing setup
 
 *find a way to automate lirc installation
