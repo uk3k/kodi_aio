@@ -71,7 +71,9 @@ script
 end script
 upstart
 
+#make scripts executable
 chmod +x /usr/local/bin/runvdr
+chmod +x /etc/init/vdr.conf
 
 #create access rules for vdr
 echo "$nw_loc_net	#any host on the local net" > /var/lib/vdr/allowed_hosts.conf
