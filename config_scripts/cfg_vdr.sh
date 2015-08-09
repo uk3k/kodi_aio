@@ -57,23 +57,19 @@ runvdr
 
 #create upstart script
 cat > /etc/init/vdr.conf <<upstart
-# vdr upstart script
+# vdr-upstart
 
-description     "´linux video disk recorder"
-author          "Rainer Hochecker/Paul Krause"
+description     "linux video disk recorder"
+author          "Paul Krause"
 
-start on (filesystem and net-device-up IFACE!=lo and dvb-ready)
+start on (local-filesystems and net-device-up IFACE!=lo and dvb-ready)
 stop on runlevel [!2345]
-nice -1
 
-script
-        su -c /usr/local/bin/runvdr vdr > /var/log/vdr.log 2>&1
-end script
+exec /usr/local/bin/runvdr vdr > /var/log/vdr.log 2>&1
 upstart
 
 #make scripts executable
 chmod +x /usr/local/bin/runvdr
-chmod +x /etc/init/vdr.conf
 
 #create access rules for vdr
 echo "$nw_loc_net	#any host on the local net" > /var/lib/vdr/allowed_hosts.conf
