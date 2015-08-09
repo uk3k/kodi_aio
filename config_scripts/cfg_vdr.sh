@@ -65,7 +65,7 @@ author          "Paul Krause"
 start on (local-filesystems and net-device-up IFACE!=lo and dvb-ready)
 stop on runlevel [!2345]
 
-exec /usr/local/bin/runvdr vdr > /var/log/vdr.log 2>&1
+exec /usr/local/bin/runvdr > /var/log/vdr.log 2>&1
 upstart
 
 #make scripts executable
