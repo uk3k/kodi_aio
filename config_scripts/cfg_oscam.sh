@@ -79,7 +79,7 @@ cat > /usr/local/etc/oscam.server <<oscamserver
 [reader]
 label			= KBW
 protocol		= smartreader
-device			= $busid
+device			= $tv_cr_busid
 caid			= 098E
 detect			= cd
 boxid			= 12345678
