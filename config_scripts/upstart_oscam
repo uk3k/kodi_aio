@@ -1,0 +1,16 @@
+#!/bin/bash
+#oscam upstart script
+
+cat > /etc/init/oscam.conf <<upstart
+# oscam upstart script
+
+description     "OSCAM Card-Server"
+author          "Paul Krause"
+
+start on (filesystem and net-device-up IFACE!=lo and dvb-ready)
+stop on runlevel [!016]
+
+script
+      exec su -c /usr/local/bin/oscam -c /usr/local/etc/
+end script
+upstart
