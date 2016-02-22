@@ -18,9 +18,9 @@ if [ "$tv_vdr" = "true" ]
   chown -R :video /var/vdr /var/lib/vdr/
   chmod -R g+w /var/vdr /var/lib/vdr/
   cd /$install/src
+  #git clone git://projects.vdr-developer.org/vdr.git
   
   #use stable release for testing
-  #git clone git://projects.vdr-developer.org/vdr.git
   wget https://projects.vdr-developer.org/git/vdr.git/snapshot/vdr-vdr-2.2.0.tar.gz
   tar xfvz vdr-vdr-2.2.0.tar.gz
   rm vdr-vdr-2.2.0.tar.gz
