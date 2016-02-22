@@ -46,7 +46,7 @@ then
 	#select oscam packages
 	if [ "$tv_oscam" = "true" ]
   		then
-    		oscampkg="cmake subversion openssl libssl-dev libusb-dev libusb-1.0 "
+    		oscampkg="cmake subversion openssl libssl-dev libusb-dev libusb-1.0 libpcsc-perl libpcsclite-dev "
 		fi
 fi
 
