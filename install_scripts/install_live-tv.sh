@@ -2,9 +2,9 @@
 ###live-tv installation routines
 
 ### testing ###
-#install = "/home/xbmc"
+#install="/home/xbmc"
 #tv_vdr="true"
-#tv_oscam = "true"
+#tv_oscam="true"
 ### testing end ###
 
 #vdr
