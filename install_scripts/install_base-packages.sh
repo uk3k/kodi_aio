@@ -39,7 +39,7 @@ then
 	#select vdr packages
 	if [ "$tv_vdr" = "true" ]
   		then
-    		vdrpkg="build-essential libjpeg62-dev libcap-dev libfontconfig1-dev gettext libncursesw5-dev libncurses5-dev pkg-config w-scan"
+    		vdrpkg="build-essential libjpeg62-dev libcap-dev libfontconfig1-dev gettext libncursesw5-dev libncurses5-dev pkg-config w-scan libfontconfig1-dev "
     		apt-get build-dep -y vdr
 	fi
 
