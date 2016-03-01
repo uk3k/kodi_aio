@@ -100,22 +100,71 @@ caid		 	         = 098E
 oscamuser
 
 #create upstart-script
-cat > /etc/init/oscam.conf <<upstart
-#oscam-upstart
+cat > /etc/init.d/oscam <<upstart
+#!/bin/sh
 
-description     "OSCAM Card-Server"
-author          "Paul Krause"
+DAEMON=/usr/local/bin/oscam
+DEAMON_OPTS="-c /usr/local/etc/"
+PIDFILE=/var/run/oscam.pid
 
-start on (local-filesystems and net-device-up IFACE!=lo)
-stop on runlevel [!2345]
+test -x ${DAEMON} || exit 0
 
-exec /usr/local/bin/oscam -c /usr/local/etc/
+. /lib/lsb/init-functions
+
+
+get_status()
+{
+    if start-stop-daemon --start --startas $DAEMON --test \
+        --name $(basename $DAEMON) --pidfile $PIDFILE >/dev/null
+    then
+        echo " - is not running."
+        exit 3
+    else
+        echo " - is running."
+        exit 0
+    fi
+}
+
+
+case "$1" in
+  start)
+        log_daemon_msg "Starting OScam"
+        start-stop-daemon --start --quiet --background --pidfile ${PIDFILE} --make-pidfile --exec ${DAEMON} -- ${DEAMON_OPTS} 
+        log_end_msg $?
+    ;;
+  stop)
+        log_daemon_msg "Stopping OScam"
+        start-stop-daemon --stop --exec ${DAEMON}
+        log_end_msg $?
+    ;;
+  force-reload|restart)
+        $0 stop
+        $0 start
+    ;;
+  reload)
+        killall -HUP ${DAEMON}
+    ;;
+  status)
+        echo -n "Getting status of oscam"
+        get_status
+        ;;
+
+  *)  
+    echo "Usage: $0 {start|stop|restart|force-reload|status|reload}"
+    exit 1
+    ;;
+esac
+
+exit 0
 upstart
+
+chmod +x /etc/init.d/oscam
+update-rc.d oscam defaults
 
 ###create oscam logging dir
 mkdir -p /var/log/oscam
 chmod -R 775 /var/log/oscam/
-
+chown -R nobody /var/log/oscam
 
 #cfg permissions for samba
 chmod -R 775 /usr/local/etc/*
